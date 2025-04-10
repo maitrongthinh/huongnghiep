@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo dõi tiến độ - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Hướng Nghiệp Tương Lai</h1>
+                </a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tests.html">Bài kiểm tra</a></li>
+                    <li><a href="careers.html">Nghề nghiệp</a></li>
+                    <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="progress.html" class="active">Tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-secondary">Đăng nhập</a>
+                <a href="register.html" class="btn btn-primary">Đăng ký</a>
+            </div>
+            <div class="user-menu-container">
+                <div class="user-menu">
+                    <span class="user-name">Người dùng</span>
+                    <div class="user-dropdown">
+                        <a href="progress.html">Tiến độ của tôi</a>
+                        <a href="#" id="logout-btn">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="progress-section">
+            <div class="container">
+                <div id="progress-container">
+                    <!-- Nội dung sẽ được thêm bằng JavaScript -->
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Đang tải dữ liệu...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Hướng Nghiệp Tương Lai</h2>
+                    <p>Định hướng nghề nghiệp - Phát triển bản thân</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="tests.html">Bài kiểm tra</a></li>
+                        <li><a href="careers.html">Nghề nghiệp</a></li>
+                        <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                        <li><a href="progress.html">Tiến độ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Liên hệ</h3>
+                    <p><i class="fas fa-envelope"></i> info@huongnghieptuonglai.vn</p>
+                    <p><i class="fas fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/recommendation.js"></script>
+    <script src="js/learning-path.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

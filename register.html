@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .auth-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .auth-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: var(--text-light);
+        }
+        
+        .auth-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .auth-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .auth-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .auth-form input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 107, 223, 0.2);
+            outline: none;
+        }
+        
+        .auth-form input.error {
+            border-color: var(--danger-color);
+        }
+        
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .auth-form .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .auth-form .terms {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        
+        .auth-form .terms input {
+            width: auto;
+            margin-right: 8px;
+            margin-top: 5px;
+        }
+        
+        .auth-form .terms label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .auth-form .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+        
+        .auth-form .btn-submit:hover {
+            background-color: #3a5bc7;
+        }
+        
+        .auth-separator {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .auth-separator hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+        
+        .auth-separator span {
+            padding: 0 15px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-login-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .social-login-btn:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .social-login-btn i {
+            margin-right: 10px;
+        }
+        
+        .social-login-btn.google i {
+            color: #DB4437;
+        }
+        
+        .social-login-btn.facebook i {
+            color: #4267B2;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .auth-footer a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hướng Nghiệp Tương Lai</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tests.html">Bài kiểm tra</a></li>
+                    <li><a href="careers.html">Ngành nghề</a></li>
+                    <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="progress.html">Theo dõi tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login">Đăng nhập</a>
+                <a href="register.html" class="btn btn-register active">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2>Đăng ký tài khoản</h2>
+                    <p>Tạo tài khoản để bắt đầu hành trình khám phá nghề nghiệp của bạn.</p>
+                </div>
+                
+                <form class="auth-form" id="register-form">
+                    <div class="form-group">
+                        <label for="fullname">Họ và tên</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Xác nhận mật khẩu</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    
+                    <div class="terms">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Tôi đồng ý với <a href="terms.html">Điều khoản sử dụng</a> và <a href="privacy.html">Chính sách bảo mật</a> của Hướng Nghiệp Tương Lai.</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Đăng ký</button>
+                </form>
+                
+                <div class="auth-separator">
+                    <hr>
+                    <span>Hoặc đăng ký với</span>
+                    <hr>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-login-btn google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button class="social-login-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </button>
+                </div>
+                
+                <div class="auth-footer">
+                    <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hướng Nghiệp Tương Lai</h3>
+                    <p>Đồng hành cùng học sinh trên con đường khám phá nghề nghiệp</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="tests.html">Bài kiểm tra</a></li>
+                        <li><a href="careers.html">Ngành nghề</a></li>
+                        <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin mới nhất về hướng nghiệp và giáo dục</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn btn-newsletter">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerForm = document.getElementById('register-form');
+            
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const fullname = document.getElementById('fullname').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                const terms = document.getElementById('terms').checked;
+                
+                // Validate form
+                if (!fullname || !email || !password || !confirmPassword) {
+                    utils.showNotification('Vui lòng điền đầy đủ thông tin', 'error');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    utils.showNotification('Mật khẩu xác nhận không khớp', 'error');
+                    return;
+                }
+                
+                if (!terms) {
+                    utils.showNotification('Vui lòng đồng ý với điều khoản sử dụng', 'error');
+                    return;
+                }
+                
+                // Show loading state
+                const submitBtn = this.querySelector('.btn-submit');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Đang đăng ký...';
+                submitBtn.disabled = true;
+                
+                // Call register function
+                auth.register({ fullname, email, password })
+                    .then(response => {
+                        if (response.success) {
+                            utils.showNotification('Đăng ký thành công!');
+                            // Redirect to home page after successful registration
+                            setTimeout(() => {
+                                window.location.href = 'index.html';
+                            }, 1000);
+                        } else {
+                            utils.showNotification('Đăng ký thất bại. Vui lòng thử lại sau.', 'error');
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        }
+                    })
+                    .catch(error => {
+                        utils.showNotification('Đã xảy ra lỗi. Vui lòng thử lại sau.', 'error');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    });
+            });
+            
+            // Social login buttons
+            document.querySelectorAll('.social-login-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const provider = this.classList.contains('google') ? 'Google' : 'Facebook';
+                    utils.showNotification(`Đăng ký bằng ${provider} sẽ được triển khai sau.`, 'info');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

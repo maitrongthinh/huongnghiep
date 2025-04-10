@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra MBTI - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .test-header {
+            background-color: rgba(74, 107, 223, 0.1);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .test-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .test-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .test-info {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .test-info-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .test-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .test-info-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+        
+        .test-info-item i {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .test-info-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .test-info-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .test-instructions {
+            margin-bottom: 30px;
+        }
+        
+        .test-instructions h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .test-instructions p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .test-instructions ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .test-instructions ul li {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .start-test-btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .start-test-btn:hover {
+            background-color: #3a5bc7;
+            transform: translateY(-3px);
+        }
+        
+        .test-content {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            display: none;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+        
+        .test-progress {
+            margin-bottom: 30px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .question-container {
+            margin-bottom: 30px;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .option-item {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .option-item:hover {
+            background-color: #e9ecef;
+        }
+        
+        .option-item.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 223, 0.1);
+        }
+        
+        .test-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .prev-btn {
+            background-color: #e9ecef;
+            color: var(--text-color);
+        }
+        
+        .prev-btn:hover {
+            background-color: #dee2e6;
+        }
+        
+        .next-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .next-btn:hover {
+            background-color: #3a5bc7;
+        }
+        
+        .submit-btn {
+            background-color: var(--success-color);
+            color: white;
+            display: none;
+        }
+        
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        
+        @media (max-width: 768px) {
+            .test-header h2 {
+                font-size: 2rem;
+            }
+            
+            .test-container {
+                padding: 20px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .nav-btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hướng Nghiệp Tương Lai</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../tests.html" class="active">Bài kiểm tra</a></li>
+                    <li><a href="../careers.html">Ngành nghề</a></li>
+                    <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="../progress.html">Theo dõi tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="../login.html" class="btn btn-login">Đăng nhập</a>
+                <a href="../register.html" class="btn btn-register">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="test-header">
+        <div class="container">
+            <h2>Bài Kiểm Tra MBTI</h2>
+            <p>Khám phá 16 loại tính cách khác nhau dựa trên cách bạn nhận thức thế giới và đưa ra quyết định.</p>
+        </div>
+    </section>
+
+    <section class="test-info" id="test-intro">
+        <div class="container">
+            <div class="test-info-container">
+                <div class="test-info-grid">
+                    <div class="test-info-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Thời gian</h3>
+                        <p>15-20 phút</p>
+                    </div>
+                    <div class="test-info-item">
+                        <i class="fas fa-list-ol"></i>
+                        <h3>Số câu hỏi</h3>
+                        <p>70 câu</p>
+                    </div>
+                    <div class="test-info-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Kết quả</h3>
+                        <p>16 loại tính cách</p>
+                    </div>
+                    <div class="test-info-item">
+                        <i class="fas fa-user-check"></i>
+                        <h3>Độ chính xác</h3>
+                        <p>Cao</p>
+                    </div>
+                </div>
+                
+                <div class="test-instructions">
+                    <h3>Hướng dẫn làm bài</h3>
+                    <p>Bài kiểm tra MBTI (Myers-Briggs Type Indicator) là một công cụ đánh giá tâm lý giúp xác định loại tính cách của bạn dựa trên lý thuyết của Carl Jung. Kết quả sẽ cho bạn biết bạn thuộc một trong 16 loại tính cách, mỗi loại được đại diện bởi 4 chữ cái (ví dụ: INTJ, ESFP).</p>
+                    
+                    <p>Để có kết quả chính xác nhất, vui lòng làm theo các hướng dẫn sau:</p>
+                    
+                    <ul>
+                        <li>Trả lời tất cả các câu hỏi một cách trung thực, dựa trên cách bạn thực sự là, không phải cách bạn muốn trở thành.</li>
+                        <li>Không có câu trả lời đúng hay sai. Hãy chọn phương án phản ánh đúng nhất con người bạn.</li>
+                        <li>Cố gắng không chọn câu trả lời trung lập quá nhiều. Hãy nghiêng về một bên nếu có thể.</li>
+                        <li>Làm bài trong một môi trường yên tĩnh và không bị gián đoạn.</li>
+                        <li>Không suy nghĩ quá lâu cho mỗi câu hỏi, phản ứng đầu tiên thường là chính xác nhất.</li>
+                    </ul>
+                    
+                    <p>Sau khi hoàn thành bài kiểm tra, bạn sẽ nhận được kết quả chi tiết về loại tính cách của mình, bao gồm điểm mạnh, điểm yếu, và các ngành nghề phù hợp.</p>
+                </div>
+                
+                <a href="#" class="start-test-btn" id="start-test">Bắt đầu làm bài</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="test-content" id="test-questions">
+        <div class="container">
+            <div class="test-container">
+                <div class="test-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="current-question">Câu hỏi 1/70</span>
+                        <span id="time-remaining">Thời gian còn lại: 20:00</span>
+                    </div>
+                </div>
+                
+                <div class="question-container" id="question-container">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+                
+                <div class="test-navigation">
+                    <button class="nav-btn prev-btn" id="prev-btn">Câu trước</button>
+                    <button class="nav-btn next-btn" id="next-btn">Câu tiếp theo</button>
+                    <button class="nav-btn submit-btn" id="submit-btn">Nộp bài</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hướng Nghiệp Tương Lai</h3>
+                    <p>Đồng hành cùng học sinh trên con đường khám phá nghề nghiệp</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="../index.html">Trang chủ</a></li>
+                        <li><a href="../tests.html">Bài kiểm tra</a></li>
+                        <li><a href="../careers.html">Ngành nghề</a></li>
+                        <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="../faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="../contact.html">Liên hệ</a></li>
+                        <li><a href="../privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="../terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin mới nhất về hướng nghiệp và giáo dục</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn btn-newsletter">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // MBTI Test Questions
+            const mbtiQuestions = [
+                {
+                    id: 1,
+                    text: "Khi ở trong một nhóm người, bạn thường:",
+                    options: [
+                        "Bắt đầu cuộc trò chuyện và giới thiệu mọi người với nhau",
+                        "Chờ người khác bắt chuyện với bạn trước"
+                    ],
+                    dimension: "E-I" // Extraversion vs. Introversion
+                },
+                {
+                    id: 2,
+                    text: "Bạn thích làm việc trong môi trường:",
+                    options: [
+                        "Năng động, nhiều tương tác với người khác",
+                        "Yên tĩnh, tập trung vào công việc cá nhân"
+                    ],
+                    dimension: "E-I"
+                },
+                {
+                    id: 3,
+                    text: "Sau một ngày giao tiếp nhiều với người khác, bạn cảm thấy:",
+                    options: [
+                        "Tràn đầy năng lượng và phấn khích",
+                        "Mệt mỏi và cần thời gian một mình để nạp năng lượng"
+                    ],
+                    dimension: "E-I"
+                },
+                {
+                    id: 4,
+                    text: "Khi giải quyết vấn đề, bạn thường:",
+                    options: [
+                        "Dựa vào kinh nghiệm và thực tế",
+                        "Dựa vào trực giác và khả năng tưởng tượng"
+                    ],
+                    dimension: "S-N" // Sensing vs. Intuition
+                },
+                {
+                    id: 5,
+                    text: "Bạn thích học những môn học:",
+                    options: [
+                        "Có ứng dụng thực tế và rõ ràng",
+                        "Mang tính trừu tượng và lý thuyết"
+                    ],
+                    dimension: "S-N"
+                },
+                {
+                    id: 6,
+                    text: "Khi đọc một cuốn sách, bạn chú ý đến:",
+                    options: [
+                        "Các chi tiết cụ thể và mô tả rõ ràng",
+                        "Ý nghĩa ẩn dụ và thông điệp tổng thể"
+                    ],
+                    dimension: "S-N"
+                },
+                {
+                    id: 7,
+                    text: "Khi đưa ra quyết định quan trọng, bạn thường:",
+                    options: [
+                        "Cân nhắc tác động đến cảm xúc của mọi người",
+                        "Phân tích logic và khách quan"
+                    ],
+                    dimension: "F-T" // Feeling vs. Thinking
+                },
+                {
+                    id: 8,
+                    text: "Trong một cuộc tranh luận, bạn thường:",
+                    options: [
+                        "Cố gắng hiểu quan điểm của người khác và tìm điểm chung",
+                        "Tập trung vào việc chứng minh lập luận của mình là đúng"
+                    ],
+                    dimension: "F-T"
+                },
+                {
+                    id: 9,
+                    text: "Khi nhận xét về công việc của người khác, bạn thường:",
+                    options: [
+                        "Nhẹ nhàng và khéo léo để không làm tổn thương họ",
+                        "Thẳng thắn và trực tiếp để họ biết cần cải thiện gì"
+                    ],
+                    dimension: "F-T"
+                },
+                {
+                    id: 10,
+                    text: "Bạn thích làm việc trong môi trường:",
+                    options: [
+                        "Có kế hoạch rõ ràng và lịch trình cụ thể",
+                        "Linh hoạt và có thể thay đổi theo tình huống"
+                    ],
+                    dimension: "J-P" // Judging vs. Perceiving
+                }
+                // Thêm 60 câu hỏi nữa để đủ 70 câu
+                // Trong triển khai thực tế, sẽ có đủ 70 câu hỏi
+            ];
+            
+            // Test variables
+            let currentQuestionIndex = 0;
+            const userAnswers = new Array(mbtiQuestions.length).fill(null);
+            let testStarted = false;
+            let testTimer;
+            let timeRemaining = 20 * 60; // 20 minutes in seconds
+            
+            // DOM elements
+            const testIntroSection = document.getElementById('test-intro');
+            const testQuestionsSection = document.getElementById('test-questions');
+            const startTestBtn = document.getElementById('start-test');
+            const questionContainer = document.getElementById('question-container');
+            const progressFill = document.getElementById('progress-fill');
+            const currentQuestionText = document.getElementById('current-question');
+            const timeRemainingText = document.getElementById('time-remaining');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Start test button click event
+            startTestBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                testIntroSection.style.display = 'none';
+                testQuestionsSection.style.display = 'block';
+                testStarted = true;
+                startTimer();
+                loadQuestion(currentQuestionIndex);
+                updateNavButtons();
+            });
+            
+            // Previous button click event
+            prevBtn.addEventListener('click', function() {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    loadQuestion(currentQuestionIndex);
+                    updateNavButtons();
+                }
+            });
+            
+            // Next button click event
+            nextBtn.addEventListener('click', function() {
+                if (currentQuestionIndex < mbtiQuestions.length - 1) {
+                    currentQuestionIndex++;
+                    loadQuestion(currentQuestionIndex);
+                    updateNavButtons();
+                }
+            });
+            
+            // Submit button click event
+            submitBtn.addEventListener('click', function() {
+                // Check if all questions are answered
+                const unansweredQuestions = userAnswers.filter(answer => answer === null).length;
+                
+                if (unansweredQuestions > 0) {
+                    if (confirm(`Bạn còn ${unansweredQuestions} câu hỏi chưa trả lời. Bạn có chắc chắn muốn nộp bài không?`)) {
+                        submitTest();
+                    }
+                } else {
+                    submitTest();
+                }
+            });
+            
+            // Load question function
+            function loadQuestion(index) {
+                const question = mbtiQuestions[index];
+                
+                // Update progress
+                const progress = ((index + 1) / mbtiQuestions.length) * 100;
+                progressFill.style.width = `${progress}%`;
+                currentQuestionText.textContent = `Câu hỏi ${index + 1}/${mbtiQuestions.length}`;
+                
+                // Create question HTML
+                questionContainer.innerHTML = `
+                    <div class="question-text">${question.text}</div>
+                    <div class="options-container">
+                        <div class="option-item ${userAnswers[index] === 0 ? 'selected' : ''}" data-index="0">
+                            ${question.options[0]}
+                        </div>
+                        <div class="option-item ${userAnswers[index] === 1 ? 'selected' : ''}" data-index="1">
+                            ${question.options[1]}
+                        </div>
+                    </div>
+                `;
+                
+                // Add click event to options
+                const optionItems = questionContainer.querySelectorAll('.option-item');
+                optionItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const selectedIndex = parseInt(this.getAttribute('data-index'));
+                        userAnswers[currentQuestionIndex] = selectedIndex;
+                        
+                        // Update selected state
+                        optionItems.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                    });
+                });
+            }
+            
+            // Update navigation buttons
+            function updateNavButtons() {
+                prevBtn.style.display = currentQuestionIndex === 0 ? 'none' : 'block';
+                
+                if (currentQuestionIndex === mbtiQuestions.length - 1) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'block';
+                } else {
+                    nextBtn.style.display = 'block';
+                    submitBtn.style.display = 'none';
+                }
+            }
+            
+            // Start timer function
+            function startTimer() {
+                testTimer = setInterval(function() {
+                    timeRemaining--;
+                    
+                    const minutes = Math.floor(timeRemaining / 60);
+                    const seconds = timeRemaining % 60;
+                    timeRemainingText.textContent = `Thời gian còn lại: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                    
+                    if (timeRemaining <= 0) {
+                        clearInterval(testTimer);
+                        alert('Hết thời gian làm bài! Bài kiểm tra của bạn sẽ được nộp tự động.');
+                        submitTest();
+                    }
+                }, 1000);
+            }
+            
+            // Submit test function
+            function submitTest() {
+                clearInterval(testTimer);
+                
+                // Calculate MBTI type
+                const result = calculateMBTIType();
+                
+                // Save result to localStorage for demo purposes
+                localStorage.setItem('mbtiResult', JSON.stringify(result));
+                
+                // Redirect to results page
+                window.location.href = 'mbti-result.html';
+            }
+            
+            // Calculate MBTI type function
+            function calculateMBTIType() {
+                // Count dimensions
+                let eCounts = 0, iCounts = 0;
+                let sCounts = 0, nCounts = 0;
+                let fCounts = 0, tCounts = 0;
+                let jCounts = 0, pCounts = 0;
+                
+                mbtiQuestions.forEach((question, index) => {
+                    if (userAnswers[index] === null) return;
+                    
+                    const answer = userAnswers[index];
+                    
+                    switch (question.dimension) {
+                        case 'E-I':
+                            answer === 0 ? eCounts++ : iCounts++;
+                            break;
+                        case 'S-N':
+                            answer === 0 ? sCounts++ : nCounts++;
+                            break;
+                        case 'F-T':
+                            answer === 0 ? fCounts++ : tCounts++;
+                            break;
+                        case 'J-P':
+                            answer === 0 ? jCounts++ : pCounts++;
+                            break;
+                    }
+                });
+                
+                // Determine type
+                const e_i = eCounts > iCounts ? 'E' : 'I';
+                const s_n = sCounts > nCounts ? 'S' : 'N';
+                const f_t = fCounts > tCounts ? 'F' : 'T';
+                const j_p = jCounts > pCounts ? 'J' : 'P';
+                
+                const mbtiType = e_i + s_n + f_t + j_p;
+                
+                // Calculate percentages
+                const ePercentage = Math.round((eCounts / (eCounts + iCounts)) * 100);
+                const sPercentage = Math.round((sCounts / (sCounts + nCounts)) * 100);
+                const fPercentage = Math.round((fCounts / (fCounts + tCounts)) * 100);
+                const jPercentage = Math.round((jCounts / (jCounts + pCounts)) * 100);
+                
+                return {
+                    type: mbtiType,
+                    dimensions: {
+                        ei: { e: ePercentage, i: 100 - ePercentage },
+                        sn: { s: sPercentage, n: 100 - sPercentage },
+                        ft: { f: fPercentage, t: 100 - fPercentage },
+                        jp: { j: jPercentage, p: 100 - jPercentage }
+                    }
+                };
+            }
+        });
+    </script>
+</body>
+</html>

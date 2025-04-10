@@ -1,0 +1,664 @@
+{
+  "careers": [
+    {
+      "id": 1,
+      "title": "Kỹ sư phần mềm",
+      "description": "Thiết kế, phát triển và bảo trì phần mềm máy tính và ứng dụng.",
+      "education": ["Cử nhân Khoa học Máy tính", "Cử nhân Kỹ thuật Phần mềm", "Cử nhân Công nghệ Thông tin"],
+      "skills": ["Lập trình", "Giải quyết vấn đề", "Tư duy logic", "Làm việc nhóm", "Giao tiếp"],
+      "salary_range": "15.000.000 - 50.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng nhanh",
+      "work_environment": "Văn phòng, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["INTJ", "INTP", "ENTJ", "ENTP", "ISTJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["I", "R", "C"]
+      },
+      "related_careers": [2, 3, 5, 8]
+    },
+    {
+      "id": 2,
+      "title": "Nhà phân tích dữ liệu",
+      "description": "Thu thập, xử lý và phân tích dữ liệu để hỗ trợ ra quyết định kinh doanh.",
+      "education": ["Cử nhân Khoa học Dữ liệu", "Cử nhân Thống kê", "Cử nhân Toán học", "Cử nhân Kinh tế"],
+      "skills": ["Phân tích dữ liệu", "Thống kê", "Lập trình", "Trực quan hóa dữ liệu", "Tư duy phản biện"],
+      "salary_range": "15.000.000 - 45.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng nhanh",
+      "work_environment": "Văn phòng, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["INTJ", "INTP", "ISTJ", "ISTP", "ENTJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["I", "C", "R"]
+      },
+      "related_careers": [1, 3, 8, 15]
+    },
+    {
+      "id": 3,
+      "title": "Nhà khoa học dữ liệu",
+      "description": "Kết hợp thống kê, toán học và lập trình để phân tích và giải thích dữ liệu phức tạp.",
+      "education": ["Thạc sĩ Khoa học Dữ liệu", "Thạc sĩ Thống kê", "Thạc sĩ Toán học", "Thạc sĩ Máy tính"],
+      "skills": ["Học máy", "Thống kê", "Lập trình", "Phân tích dữ liệu", "Giải quyết vấn đề"],
+      "salary_range": "25.000.000 - 60.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng nhanh",
+      "work_environment": "Văn phòng, nghiên cứu, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["INTJ", "INTP", "ENTJ", "ENTP", "ISTJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["I", "R", "C"]
+      },
+      "related_careers": [1, 2, 8, 15]
+    },
+    {
+      "id": 4,
+      "title": "Giáo viên",
+      "description": "Giảng dạy và hướng dẫn học sinh phát triển kiến thức và kỹ năng.",
+      "education": ["Cử nhân Sư phạm", "Cử nhân chuyên ngành + Chứng chỉ sư phạm"],
+      "skills": ["Giao tiếp", "Thuyết trình", "Tổ chức", "Kiên nhẫn", "Sáng tạo"],
+      "salary_range": "8.000.000 - 25.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Trường học, lớp học",
+      "personality_match": {
+        "mbti": ["ENFJ", "ESFJ", "ENFP", "INFJ", "ISFJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["S", "A", "E"]
+      },
+      "related_careers": [9, 10, 11, 20]
+    },
+    {
+      "id": 5,
+      "title": "Kỹ sư AI",
+      "description": "Phát triển và triển khai các hệ thống trí tuệ nhân tạo và học máy.",
+      "education": ["Thạc sĩ Khoa học Máy tính", "Thạc sĩ Trí tuệ nhân tạo", "Tiến sĩ Khoa học Máy tính"],
+      "skills": ["Học máy", "Xử lý ngôn ngữ tự nhiên", "Thị giác máy tính", "Lập trình", "Toán học"],
+      "salary_range": "30.000.000 - 70.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng nhanh",
+      "work_environment": "Văn phòng, nghiên cứu, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["INTJ", "INTP", "ENTJ", "ENTP", "ISTJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["I", "R", "C"]
+      },
+      "related_careers": [1, 3, 8, 15]
+    },
+    {
+      "id": 6,
+      "title": "Bác sĩ",
+      "description": "Chẩn đoán và điều trị bệnh, thương tích và các vấn đề sức khỏe khác.",
+      "education": ["Bác sĩ Y khoa", "Chuyên khoa"],
+      "skills": ["Chẩn đoán", "Giải quyết vấn đề", "Giao tiếp", "Đồng cảm", "Làm việc dưới áp lực"],
+      "salary_range": "20.000.000 - 100.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Bệnh viện, phòng khám",
+      "personality_match": {
+        "mbti": ["ISTJ", "ISFJ", "ESTJ", "ESFJ", "INTJ"],
+        "big_five": {
+          "openness": "trung bình",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["I", "S", "R"]
+      },
+      "related_careers": [7, 9, 10, 11]
+    },
+    {
+      "id": 7,
+      "title": "Y tá",
+      "description": "Chăm sóc bệnh nhân và hỗ trợ bác sĩ trong việc điều trị.",
+      "education": ["Cử nhân Điều dưỡng", "Cao đẳng Điều dưỡng"],
+      "skills": ["Chăm sóc bệnh nhân", "Giao tiếp", "Đồng cảm", "Làm việc nhóm", "Quản lý thời gian"],
+      "salary_range": "8.000.000 - 25.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng",
+      "work_environment": "Bệnh viện, phòng khám, chăm sóc tại nhà",
+      "personality_match": {
+        "mbti": ["ISFJ", "ESFJ", "ISFP", "ESFP", "INFJ"],
+        "big_five": {
+          "openness": "trung bình",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["S", "R", "C"]
+      },
+      "related_careers": [6, 9, 10, 11]
+    },
+    {
+      "id": 8,
+      "title": "Kỹ sư an ninh mạng",
+      "description": "Bảo vệ hệ thống máy tính và mạng khỏi các mối đe dọa và xâm nhập.",
+      "education": ["Cử nhân An ninh mạng", "Cử nhân Khoa học Máy tính", "Chứng chỉ an ninh mạng"],
+      "skills": ["Bảo mật mạng", "Phân tích mã độc", "Kiểm thử xâm nhập", "Lập trình", "Tư duy phản biện"],
+      "salary_range": "20.000.000 - 60.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng nhanh",
+      "work_environment": "Văn phòng, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["INTJ", "ISTJ", "INTP", "ISTP", "ENTJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "thấp",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["I", "R", "C"]
+      },
+      "related_careers": [1, 3, 5, 15]
+    },
+    {
+      "id": 9,
+      "title": "Nhà tâm lý học",
+      "description": "Nghiên cứu và điều trị các vấn đề về tâm lý, cảm xúc và hành vi.",
+      "education": ["Thạc sĩ Tâm lý học", "Tiến sĩ Tâm lý học"],
+      "skills": ["Lắng nghe", "Đồng cảm", "Phân tích", "Giao tiếp", "Giải quyết vấn đề"],
+      "salary_range": "15.000.000 - 50.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng",
+      "work_environment": "Phòng tư vấn, bệnh viện, trường học",
+      "personality_match": {
+        "mbti": ["INFJ", "ENFJ", "INFP", "ENFP", "ISFJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["S", "I", "A"]
+      },
+      "related_careers": [4, 6, 10, 11]
+    },
+    {
+      "id": 10,
+      "title": "Nhà tư vấn hướng nghiệp",
+      "description": "Hỗ trợ mọi người khám phá sở thích, kỹ năng và lựa chọn nghề nghiệp phù hợp.",
+      "education": ["Cử nhân Tâm lý học", "Cử nhân Giáo dục", "Chứng chỉ tư vấn hướng nghiệp"],
+      "skills": ["Lắng nghe", "Đánh giá", "Giao tiếp", "Tư vấn", "Hiểu biết về thị trường lao động"],
+      "salary_range": "10.000.000 - 30.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Trường học, trung tâm tư vấn, văn phòng",
+      "personality_match": {
+        "mbti": ["ENFJ", "ESFJ", "INFJ", "ISFJ", "ENFP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["S", "E", "I"]
+      },
+      "related_careers": [4, 9, 11, 20]
+    },
+    {
+      "id": 11,
+      "title": "Nhà công tác xã hội",
+      "description": "Hỗ trợ cá nhân và gia đình đối phó với các vấn đề xã hội và cá nhân.",
+      "education": ["Cử nhân Công tác xã hội", "Thạc sĩ Công tác xã hội"],
+      "skills": ["Đồng cảm", "Giao tiếp", "Giải quyết vấn đề", "Quản lý ca", "Vận động"],
+      "salary_range": "8.000.000 - 25.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng",
+      "work_environment": "Cơ quan xã hội, trường học, bệnh viện",
+      "personality_match": {
+        "mbti": ["ENFJ", "ESFJ", "INFJ", "ISFJ", "ENFP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["S", "E", "A"]
+      },
+      "related_careers": [4, 9, 10, 20]
+    },
+    {
+      "id": 12,
+      "title": "Kiến trúc sư",
+      "description": "Thiết kế các tòa nhà và cấu trúc, kết hợp thẩm mỹ và chức năng.",
+      "education": ["Cử nhân Kiến trúc", "Thạc sĩ Kiến trúc"],
+      "skills": ["Thiết kế", "Sáng tạo", "Kỹ thuật", "Giao tiếp", "Giải quyết vấn đề"],
+      "salary_range": "15.000.000 - 50.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Văn phòng, công trường",
+      "personality_match": {
+        "mbti": ["INTJ", "ENTJ", "INTP", "ENTP", "ISFP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["A", "R", "I"]
+      },
+      "related_careers": [13, 14, 16, 17]
+    },
+    {
+      "id": 13,
+      "title": "Nhà thiết kế đồ họa",
+      "description": "Tạo ra các hình ảnh trực quan để truyền đạt thông điệp hoặc ý tưởng.",
+      "education": ["Cử nhân Thiết kế đồ họa", "Cử nhân Mỹ thuật", "Chứng chỉ thiết kế đồ họa"],
+      "skills": ["Thiết kế", "Sáng tạo", "Phần mềm đồ họa", "Giao tiếp", "Quản lý thời gian"],
+      "salary_range": "10.000.000 - 35.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng",
+      "work_environment": "Văn phòng, làm việc từ xa, studio",
+      "personality_match": {
+        "mbti": ["ISFP", "INFP", "ESFP", "ENFP", "ISTP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "trung bình",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "R", "E"]
+      },
+      "related_careers": [12, 14, 16, 17]
+    },
+    {
+      "id": 14,
+      "title": "Nhà thiết kế UX/UI",
+      "description": "Thiết kế trải nghiệm người dùng và giao diện cho các sản phẩm số.",
+      "education": ["Cử nhân Thiết kế", "Cử nhân Tương tác người-máy", "Chứng chỉ UX/UI"],
+      "skills": ["Thiết kế", "Nghiên cứu người dùng", "Nguyên mẫu", "Giao tiếp", "Giải quyết vấn đề"],
+      "salary_range": "15.000.000 - 45.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng nhanh",
+      "work_environment": "Văn phòng, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["INFJ", "ENFJ", "INFP", "ENFP", "ISFP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["A", "S", "I"]
+      },
+      "related_careers": [1, 12, 13, 16]
+    },
+    {
+      "id": 15,
+      "title": "Chuyên gia tài chính",
+      "description": "Phân tích và quản lý tài chính, đầu tư và ngân sách.",
+      "education": ["Cử nhân Tài chính", "Cử nhân Kinh tế", "Thạc sĩ Quản trị kinh doanh"],
+      "skills": ["Phân tích tài chính", "Toán học", "Giải quyết vấn đề", "Giao tiếp", "Ra quyết định"],
+      "salary_range": "15.000.000 - 60.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Văn phòng, ngân hàng, công ty tư vấn",
+      "personality_match": {
+        "mbti": ["ISTJ", "ESTJ", "INTJ", "ENTJ", "ISTP"],
+        "big_five": {
+          "openness": "trung bình",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["C", "E", "I"]
+      },
+      "related_careers": [2, 18, 19, 21]
+    },
+    {
+      "id": 16,
+      "title": "Nhà thiết kế thời trang",
+      "description": "Thiết kế quần áo, phụ kiện và xu hướng thời trang.",
+      "education": ["Cử nhân Thiết kế thời trang", "Chứng chỉ thiết kế thời trang"],
+      "skills": ["Thiết kế", "Sáng tạo", "May vá", "Xu hướng thời trang", "Kinh doanh"],
+      "salary_range": "10.000.000 - 40.000.000 VND/tháng",
+      "job_outlook": "Cạnh tranh",
+      "work_environment": "Studio, văn phòng, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["ISFP", "ESFP", "INFP", "ENFP", "ISTP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "trung bình",
+          "extraversion": "cao",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "E", "R"]
+      },
+      "related_careers": [12, 13, 14, 17]
+    },
+    {
+      "id": 17,
+      "title": "Nhiếp ảnh gia",
+      "description": "Chụp và chỉnh sửa hình ảnh cho mục đích nghệ thuật, thương mại hoặc cá nhân.",
+      "education": ["Cử nhân Nhiếp ảnh", "Chứng chỉ nhiếp ảnh", "Tự học"],
+      "skills": ["Nhiếp ảnh", "Chỉnh sửa ảnh", "Sáng tạo", "Giao tiếp", "Kinh doanh"],
+      "salary_range": "8.000.000 - 30.000.000 VND/tháng",
+      "job_outlook": "Cạnh tranh",
+      "work_environment": "Studio, ngoài trời, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["ISFP", "ESFP", "INFP", "ENFP", "ISTP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "trung bình",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "R", "E"]
+      },
+      "related_careers": [13, 16, 22, 23]
+    },
+    {
+      "id": 18,
+      "title": "Kế toán viên",
+      "description": "Chuẩn bị và kiểm tra hồ sơ tài chính, đảm bảo tính chính xác và tuân thủ quy định.",
+      "education": ["Cử nhân Kế toán", "Chứng chỉ kế toán"],
+      "skills": ["Kế toán", "Toán học", "Tổ chức", "Chi tiết", "Phân tích"],
+      "salary_range": "10.000.000 - 35.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Văn phòng, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["ISTJ", "ESTJ", "ISFJ", "ESFJ", "INTJ"],
+        "big_five": {
+          "openness": "thấp",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["C", "E", "I"]
+      },
+      "related_careers": [15, 19, 21, 24]
+    },
+    {
+      "id": 19,
+      "title": "Nhà quản lý kinh doanh",
+      "description": "Lập kế hoạch, tổ chức và điều phối hoạt động của một tổ chức hoặc bộ phận.",
+      "education": ["Cử nhân Quản trị kinh doanh", "Thạc sĩ Quản trị kinh doanh"],
+      "skills": ["Lãnh đạo", "Ra quyết định", "Giao tiếp", "Giải quyết vấn đề", "Quản lý thời gian"],
+      "salary_range": "15.000.000 - 70.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Văn phòng, công ty",
+      "personality_match": {
+        "mbti": ["ESTJ", "ENTJ", "ESTP", "ENTP", "ISTJ"],
+        "big_five": {
+          "openness": "trung bình",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["E", "C", "S"]
+      },
+      "related_careers": [15, 18, 21, 24]
+    },
+    {
+      "id": 20,
+      "title": "Nhà báo",
+      "description": "Thu thập, viết và báo cáo tin tức và thông tin cho các phương tiện truyền thông.",
+      "education": ["Cử nhân Báo chí", "Cử nhân Truyền thông"],
+      "skills": ["Viết", "Nghiên cứu", "Giao tiếp", "Phỏng vấn", "Phân tích"],
+      "salary_range": "8.000.000 - 30.000.000 VND/tháng",
+      "job_outlook": "Cạnh tranh",
+      "work_environment": "Văn phòng, hiện trường, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["ENFJ", "ENFP", "ENTP", "ENTJ", "INFJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "S", "E"]
+      },
+      "related_careers": [4, 9, 10, 22]
+    },
+    {
+      "id": 21,
+      "title": "Nhà tiếp thị",
+      "description": "Phát triển và thực hiện chiến lược tiếp thị để quảng bá sản phẩm hoặc dịch vụ.",
+      "education": ["Cử nhân Marketing", "Cử nhân Truyền thông", "Cử nhân Quản trị kinh doanh"],
+      "skills": ["Tiếp thị", "Sáng tạo", "Phân tích", "Giao tiếp", "Mạng xã hội"],
+      "salary_range": "10.000.000 - 45.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng",
+      "work_environment": "Văn phòng, làm việc từ xa",
+      "personality_match": {
+        "mbti": ["ENFP", "ENTP", "ESFP", "ESTP", "ENTJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "trung bình",
+          "neuroticism": "thấp"
+        },
+        "holland": ["E", "A", "S"]
+      },
+      "related_careers": [15, 19, 20, 24]
+    },
+    {
+      "id": 22,
+      "title": "Nhà văn",
+      "description": "Viết nội dung sáng tạo hoặc thông tin cho sách, tạp chí, phim, truyền hình hoặc các phương tiện khác.",
+      "education": ["Cử nhân Văn học", "Cử nhân Sáng tác", "Tự học"],
+      "skills": ["Viết", "Sáng tạo", "Nghiên cứu", "Biên tập", "Kể chuyện"],
+      "salary_range": "8.000.000 - 30.000.000 VND/tháng",
+      "job_outlook": "Cạnh tranh",
+      "work_environment": "Làm việc từ xa, văn phòng",
+      "personality_match": {
+        "mbti": ["INFP", "INFJ", "ENFP", "ENFJ", "INTP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "trung bình",
+          "extraversion": "thấp",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "I", "S"]
+      },
+      "related_careers": [17, 20, 23, 25]
+    },
+    {
+      "id": 23,
+      "title": "Đạo diễn phim",
+      "description": "Chỉ đạo sản xuất phim, điều khiển diễn viên và đội ngũ sản xuất.",
+      "education": ["Cử nhân Điện ảnh", "Thạc sĩ Điện ảnh", "Tự học"],
+      "skills": ["Đạo diễn", "Kể chuyện", "Lãnh đạo", "Sáng tạo", "Giải quyết vấn đề"],
+      "salary_range": "15.000.000 - 100.000.000 VND/tháng",
+      "job_outlook": "Cạnh tranh cao",
+      "work_environment": "Phim trường, studio",
+      "personality_match": {
+        "mbti": ["ENFP", "ENFJ", "INFP", "INFJ", "ENTP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "E", "S"]
+      },
+      "related_careers": [17, 22, 25, 26]
+    },
+    {
+      "id": 24,
+      "title": "Nhân viên bán hàng",
+      "description": "Bán sản phẩm hoặc dịch vụ cho khách hàng và doanh nghiệp.",
+      "education": ["Trung học phổ thông", "Cử nhân Kinh doanh", "Chứng chỉ bán hàng"],
+      "skills": ["Bán hàng", "Giao tiếp", "Đàm phán", "Dịch vụ khách hàng", "Thuyết phục"],
+      "salary_range": "8.000.000 - 40.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Cửa hàng, văn phòng, hiện trường",
+      "personality_match": {
+        "mbti": ["ESFP", "ESTP", "ENFP", "ENTP", "ESTJ"],
+        "big_five": {
+          "openness": "trung bình",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["E", "S", "C"]
+      },
+      "related_careers": [19, 21, 27, 28]
+    },
+    {
+      "id": 25,
+      "title": "Diễn viên",
+      "description": "Thể hiện các nhân vật trong phim, truyền hình, sân khấu hoặc các phương tiện khác.",
+      "education": ["Cử nhân Nghệ thuật biểu diễn", "Chứng chỉ diễn xuất", "Tự học"],
+      "skills": ["Diễn xuất", "Giao tiếp", "Biểu cảm", "Ghi nhớ", "Làm việc nhóm"],
+      "salary_range": "Không ổn định, từ 5.000.000 - 100.000.000+ VND/tháng",
+      "job_outlook": "Cạnh tranh cao",
+      "work_environment": "Phim trường, sân khấu, studio",
+      "personality_match": {
+        "mbti": ["ESFP", "ENFP", "ISFP", "INFP", "ESTP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "trung bình",
+          "extraversion": "cao",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "S", "E"]
+      },
+      "related_careers": [22, 23, 26, 29]
+    },
+    {
+      "id": 26,
+      "title": "Nhạc sĩ",
+      "description": "Sáng tác, biểu diễn hoặc dạy âm nhạc.",
+      "education": ["Cử nhân Âm nhạc", "Chứng chỉ âm nhạc", "Tự học"],
+      "skills": ["Âm nhạc", "Biểu diễn", "Sáng tạo", "Luyện tập", "Kỹ thuật"],
+      "salary_range": "Không ổn định, từ 5.000.000 - 50.000.000+ VND/tháng",
+      "job_outlook": "Cạnh tranh cao",
+      "work_environment": "Studio, sân khấu, trường học",
+      "personality_match": {
+        "mbti": ["ISFP", "INFP", "ESFP", "ENFP", "ISTP"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["A", "R", "S"]
+      },
+      "related_careers": [4, 23, 25, 29]
+    },
+    {
+      "id": 27,
+      "title": "Đầu bếp",
+      "description": "Chuẩn bị, nấu và trình bày món ăn trong nhà hàng hoặc các cơ sở khác.",
+      "education": ["Chứng chỉ ẩm thực", "Cử nhân Ẩm thực", "Tự học"],
+      "skills": ["Nấu ăn", "Sáng tạo", "Quản lý thời gian", "Làm việc nhóm", "Chi tiết"],
+      "salary_range": "8.000.000 - 40.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Nhà bếp, nhà hàng",
+      "personality_match": {
+        "mbti": ["ISFP", "ESFP", "ISTP", "ESTP", "ISTJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "trung bình",
+          "agreeableness": "trung bình",
+          "neuroticism": "trung bình"
+        },
+        "holland": ["R", "A", "E"]
+      },
+      "related_careers": [24, 28, 29, 30]
+    },
+    {
+      "id": 28,
+      "title": "Quản lý khách sạn",
+      "description": "Giám sát hoạt động của khách sạn, đảm bảo dịch vụ khách hàng và hiệu quả kinh doanh.",
+      "education": ["Cử nhân Quản trị khách sạn", "Cử nhân Du lịch"],
+      "skills": ["Quản lý", "Dịch vụ khách hàng", "Giao tiếp", "Giải quyết vấn đề", "Tổ chức"],
+      "salary_range": "15.000.000 - 50.000.000 VND/tháng",
+      "job_outlook": "Ổn định",
+      "work_environment": "Khách sạn, khu nghỉ dưỡng",
+      "personality_match": {
+        "mbti": ["ESTJ", "ESFJ", "ENTJ", "ENFJ", "ISTJ"],
+        "big_five": {
+          "openness": "trung bình",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["E", "S", "C"]
+      },
+      "related_careers": [19, 24, 27, 30]
+    },
+    {
+      "id": 29,
+      "title": "Huấn luyện viên thể thao",
+      "description": "Huấn luyện và hướng dẫn vận động viên hoặc đội thể thao.",
+      "education": ["Cử nhân Giáo dục thể chất", "Chứng chỉ huấn luyện viên"],
+      "skills": ["Huấn luyện", "Lãnh đạo", "Giao tiếp", "Động viên", "Phân tích"],
+      "salary_range": "8.000.000 - 40.000.000 VND/tháng",
+      "job_outlook": "Cạnh tranh",
+      "work_environment": "Sân vận động, phòng tập, trường học",
+      "personality_match": {
+        "mbti": ["ESTJ", "ESTP", "ENTJ", "ENTP", "ESFJ"],
+        "big_five": {
+          "openness": "trung bình",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["S", "R", "E"]
+      },
+      "related_careers": [4, 25, 26, 30]
+    },
+    {
+      "id": 30,
+      "title": "Hướng dẫn viên du lịch",
+      "description": "Hướng dẫn du khách tham quan các địa điểm và cung cấp thông tin về lịch sử, văn hóa và điểm đến.",
+      "education": ["Cử nhân Du lịch", "Chứng chỉ hướng dẫn viên"],
+      "skills": ["Giao tiếp", "Ngôn ngữ", "Tổ chức", "Kiến thức văn hóa", "Giải quyết vấn đề"],
+      "salary_range": "8.000.000 - 25.000.000 VND/tháng",
+      "job_outlook": "Tăng trưởng",
+      "work_environment": "Ngoài trời, di chuyển",
+      "personality_match": {
+        "mbti": ["ESFP", "ENFP", "ESTP", "ENTP", "ESFJ"],
+        "big_five": {
+          "openness": "cao",
+          "conscientiousness": "cao",
+          "extraversion": "cao",
+          "agreeableness": "cao",
+          "neuroticism": "thấp"
+        },
+        "holland": ["S", "E", "A"]
+      },
+      "related_careers": [4, 27, 28, 29]
+    }
+  ]
+}

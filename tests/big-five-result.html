@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Big Five - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .result-header {
+            background-color: rgba(108, 99, 255, 0.1);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .result-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .result-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .result-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        
+        .result-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .result-summary {
+            background-color: var(--big-five-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .result-summary h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-summary p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .result-details {
+            padding: 30px;
+        }
+        
+        .trait-bars {
+            margin-bottom: 30px;
+        }
+        
+        .trait-bar {
+            margin-bottom: 25px;
+        }
+        
+        .trait-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .trait-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .trait-name i {
+            margin-right: 10px;
+            color: var(--big-five-color);
+        }
+        
+        .trait-score {
+            font-weight: 600;
+            color: var(--big-five-color);
+        }
+        
+        .trait-bar-container {
+            height: 15px;
+            background-color: #f0f4ff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .trait-fill {
+            height: 100%;
+            background-color: var(--big-five-color);
+            border-radius: 10px;
+        }
+        
+        .trait-description {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .personality-profile {
+            margin-bottom: 30px;
+        }
+        
+        .personality-profile h4 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .personality-profile p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .career-suggestions {
+            margin-bottom: 30px;
+        }
+        
+        .career-suggestions h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--dark-color);
+        }
+        
+        .career-suggestions h4 i {
+            color: var(--big-five-color);
+            margin-right: 10px;
+        }
+        
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .career-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .career-item:hover {
+            background-color: var(--big-five-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-retake {
+            background-color: #f8f9fa;
+            color: var(--text-color);
+        }
+        
+        .btn-retake:hover {
+            background-color: #e9ecef;
+        }
+        
+        .btn-explore {
+            background-color: var(--big-five-color);
+            color: white;
+        }
+        
+        .btn-explore:hover {
+            background-color: #5a52e5;
+        }
+        
+        .btn-save {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background-color: #218838;
+        }
+        
+        @media (max-width: 768px) {
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hướng Nghiệp Tương Lai</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../tests.html" class="active">Bài kiểm tra</a></li>
+                    <li><a href="../careers.html">Ngành nghề</a></li>
+                    <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="../progress.html">Theo dõi tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="../login.html" class="btn btn-login">Đăng nhập</a>
+                <a href="../register.html" class="btn btn-register">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="result-header">
+        <div class="container">
+            <h2>Kết Quả Bài Kiểm Tra Big Five</h2>
+            <p>Dưới đây là kết quả chi tiết về năm đặc điểm tính cách chính của bạn và các ngành nghề phù hợp.</p>
+        </div>
+    </section>
+
+    <section class="result-content">
+        <div class="container">
+            <div class="result-container">
+                <div class="result-card">
+                    <div class="result-summary">
+                        <h3>Hồ Sơ Tính Cách Của Bạn</h3>
+                        <p>Dựa trên mô hình Big Five (OCEAN)</p>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="trait-bars">
+                            <div class="trait-bar">
+                                <div class="trait-header">
+                                    <div class="trait-name">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Sự cởi mở (Openness)
+                                    </div>
+                                    <div class="trait-score" id="openness-score">75%</div>
+                                </div>
+                                <div class="trait-bar-container">
+                                    <div class="trait-fill" id="openness-fill" style="width: 75%"></div>
+                                </div>
+                                <div class="trait-description" id="openness-description">
+                                    Bạn có xu hướng tò mò, sáng tạo và cởi mở với những trải nghiệm mới. Bạn thích khám phá ý tưởng mới, có trí tưởng tượng phong phú và đánh giá cao nghệ thuật và cái đẹp.
+                                </div>
+                            </div>
+                            
+                            <div class="trait-bar">
+                                <div class="trait-header">
+                                    <div class="trait-name">
+                                        <i class="fas fa-tasks"></i>
+                                        Tận tâm (Conscientiousness)
+                                    </div>
+                                    <div class="trait-score" id="conscientiousness-score">82%</div>
+                                </div>
+                                <div class="trait-bar-container">
+                                    <div class="trait-fill" id="conscientiousness-fill" style="width: 82%"></div>
+                                </div>
+                                <div class="trait-description" id="conscientiousness-description">
+                                    Bạn có xu hướng có tổ chức, đáng tin cậy và tự giác. Bạn thích lập kế hoạch, làm việc chăm chỉ và hướng đến mục tiêu. Bạn cẩn thận và kỹ lưỡng trong công việc.
+                                </div>
+                            </div>
+                            
+                            <div class="trait-bar">
+                                <div class="trait-header">
+                                    <div class="trait-name">
+                                        <i class="fas fa-users"></i>
+                                        Hướng ngoại (Extraversion)
+                                    </div>
+                                    <div class="trait-score" id="extraversion-score">45%</div>
+                                </div>
+                                <div class="trait-bar-container">
+                                    <div class="trait-fill" id="extraversion-fill" style="width: 45%"></div>
+                                </div>
+                                <div class="trait-description" id="extraversion-description">
+                                    Bạn có xu hướng cân bằng giữa hướng nội và hướng ngoại. Bạn có thể tận hưởng thời gian với người khác nhưng cũng cần thời gian một mình để nạp năng lượng.
+                                </div>
+                            </div>
+                            
+                            <div class="trait-bar">
+                                <div class="trait-header">
+                                    <div class="trait-name">
+                                        <i class="fas fa-heart"></i>
+                                        Dễ chịu (Agreeableness)
+                                    </div>
+                                    <div class="trait-score" id="agreeableness-score">68%</div>
+                                </div>
+                                <div class="trait-bar-container">
+                                    <div class="trait-fill" id="agreeableness-fill" style="width: 68%"></div>
+                                </div>
+                                <div class="trait-description" id="agreeableness-description">
+                                    Bạn có xu hướng thân thiện, hợp tác và quan tâm đến người khác. Bạn thường đặt nhu cầu của người khác lên trước và tránh xung đột.
+                                </div>
+                            </div>
+                            
+                            <div class="trait-bar">
+                                <div class="trait-header">
+                                    <div class="trait-name">
+                                        <i class="fas fa-balance-scale"></i>
+                                        Ổn định cảm xúc (Neuroticism)
+                                    </div>
+                                    <div class="trait-score" id="neuroticism-score">35%</div>
+                                </div>
+                                <div class="trait-bar-container">
+                                    <div class="trait-fill" id="neuroticism-fill" style="width: 35%"></div>
+                                </div>
+                                <div class="trait-description" id="neuroticism-description">
+                                    Bạn có xu hướng ổn định về mặt cảm xúc và ít lo lắng. Bạn thường bình tĩnh, tự tin và ít bị căng thẳng trong các tình huống khó khăn.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="personality-profile">
+                            <h4>Phân tích tổng quan</h4>
+                            <p id="profile-summary">Với điểm số cao về sự cởi mở và tận tâm, bạn là người sáng tạo, tò mò và có tổ chức. Bạn thích khám phá ý tưởng mới và làm việc một cách có hệ thống để đạt được mục tiêu. Điểm số trung bình về hướng ngoại cho thấy bạn có thể thích nghi với cả môi trường xã hội và làm việc độc lập. Với điểm số khá cao về sự dễ chịu, bạn thường hợp tác tốt với người khác và tạo ra môi trường làm việc hài hòa. Điểm số thấp về tính lo lắng cho thấy bạn thường bình tĩnh và ít bị căng thẳng.</p>
+                            
+                            <p id="profile-strengths">Điểm mạnh của bạn bao gồm khả năng sáng tạo, tổ chức tốt, và khả năng làm việc hiệu quả cả độc lập và trong nhóm. Bạn thường đáng tin cậy, có trách nhiệm và có khả năng đối phó với áp lực tốt. Những đặc điểm này giúp bạn thành công trong các vai trò đòi hỏi sự sáng tạo, kỹ năng tổ chức và khả năng làm việc với người khác.</p>
+                        </div>
+                        
+                        <div class="career-suggestions">
+                            <h4><i class="fas fa-briefcase"></i> Ngành nghề phù hợp</h4>
+                            <div class="career-grid" id="career-grid">
+                                <div class="career-item">Nhà nghiên cứu khoa học</div>
+                                <div class="career-item">Kỹ sư phần mềm</div>
+                                <div class="career-item">Nhà thiết kế</div>
+                                <div class="career-item">Quản lý dự án</div>
+                                <div class="career-item">Giáo viên</div>
+                                <div class="career-item">Nhà văn</div>
+                                <div class="career-item">Kiến trúc sư</div>
+                                <div class="career-item">Nhà tư vấn</div>
+                                <div class="career-item">Nhà phân tích dữ liệu</div>
+                                <div class="career-item">Nhà tâm lý học</div>
+                                <div class="career-item">Nhà quy hoạch đô thị</div>
+                                <div class="career-item">Nhà báo</div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <a href="big-five.html" class="action-btn btn-retake">Làm lại bài kiểm tra</a>
+                            <a href="../careers.html" class="action-btn btn-explore">Khám phá ngành nghề</a>
+                            <a href="#" class="action-btn btn-save" id="save-result">Lưu kết quả</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hướng Nghiệp Tương Lai</h3>
+                    <p>Đồng hành cùng học sinh trên con đường khám phá nghề nghiệp</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="../index.html">Trang chủ</a></li>
+                        <li><a href="../tests.html">Bài kiểm tra</a></li>
+                        <li><a href="../careers.html">Ngành nghề</a></li>
+                        <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="../faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="../contact.html">Liên hệ</a></li>
+                        <li><a href="../privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="../terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin mới nhất về hướng nghiệp và giáo dục</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn btn-newsletter">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trait descriptions based on score ranges
+            const traitDescriptions = {
+                openness: {
+                    low: "Bạn có xu hướng thực tế, truyền thống và thích những điều quen thuộc. Bạn thường thích những quy trình đã được thiết lập và có thể ít quan tâm đến nghệ thuật hoặc ý tưởng trừu tượng.",
+                    medium: "Bạn có sự cân bằng giữa tư duy thực tế và sáng tạo. Bạn đánh giá cao truyền thống nhưng cũng sẵn sàng thử những điều mới khi cần thiết.",
+                    high: "Bạn có xu hướng tò mò, sáng tạo và cởi mở với những trải nghiệm mới. Bạn thích khám phá ý tưởng mới, có trí tưởng tượng phong phú và đánh giá cao nghệ thuật và cái đẹp."
+                },
+                conscientiousness: {
+                    low: "Bạn có xu hướng thoải mái, ít tổ chức và đôi khi có thể bốc đồng. Bạn thích sự linh hoạt hơn là lập kế hoạch chi tiết và có thể để mọi thứ diễn ra tự nhiên.",
+                    medium: "Bạn có sự cân bằng giữa tính tổ chức và linh hoạt. Bạn có thể lập kế hoạch khi cần thiết nhưng cũng không quá cứng nhắc với các quy tắc và thời hạn.",
+                    high: "Bạn có xu hướng có tổ chức, đáng tin cậy và tự giác. Bạn thích lập kế hoạch, làm việc chăm chỉ và hướng đến mục tiêu. Bạn cẩn thận và kỹ lưỡng trong công việc."
+                },
+                extraversion: {
+                    low: "Bạn có xu hướng hướng nội, thích thời gian một mình và có thể cảm thấy mệt mỏi sau khi tương tác xã hội kéo dài. Bạn thường suy nghĩ trước khi nói và thích làm việc trong môi trường yên tĩnh.",
+                    medium: "Bạn có xu hướng cân bằng giữa hướng nội và hướng ngoại. Bạn có thể tận hưởng thời gian với người khác nhưng cũng cần thời gian một mình để nạp năng lượng.",
+                    high: "Bạn có xu hướng hướng ngoại, năng động và thích tương tác xã hội. Bạn thường cảm thấy tràn đầy năng lượng khi ở cùng người khác và thích làm việc trong môi trường nhóm."
+                },
+                agreeableness: {
+                    low: "Bạn có xu hướng thẳng thắn, thực tế và đôi khi có thể cạnh tranh. Bạn thường ưu tiên logic hơn cảm xúc và có thể thách thức ý kiến của người khác khi cần thiết.",
+                    medium: "Bạn có sự cân bằng giữa tính cạnh tranh và hợp tác. Bạn có thể thẳng thắn khi cần thiết nhưng cũng quan tâm đến cảm xúc của người khác.",
+                    high: "Bạn có xu hướng thân thiện, hợp tác và quan tâm đến người khác. Bạn thường đặt nhu cầu của người khác lên trước và tránh xung đột."
+                },
+                neuroticism: {
+                    low: "Bạn có xu hướng ổn định về mặt cảm xúc và ít lo lắng. Bạn thường bình tĩnh, tự tin và ít bị căng thẳng trong các tình huống khó khăn.",
+                    medium: "Bạn có sự cân bằng giữa sự ổn định và nhạy cảm cảm xúc. Bạn có thể trải qua lo lắng và căng thẳng trong một số tình huống nhưng thường có thể quản lý cảm xúc của mình.",
+                    high: "Bạn có xu hướng nhạy cảm về mặt cảm xúc và có thể dễ bị căng thẳng hoặc lo lắng. Bạn có thể trải qua nhiều cảm xúc tiêu cực và phản ứng mạnh mẽ với các tình huống khó khăn."
+                }
+            };
+            
+            // Career suggestions based on trait combinations
+            const careerSuggestions = {
+                highOpenness: [
+                    "Nhà nghiên cứu khoa học", "Nhà thiết kế", "Nghệ sĩ", "Nhà văn", 
+                    "Kiến trúc sư", "Nhà tâm lý học", "Nhà báo", "Giáo sư đại học"
+                ],
+                highConscientiousness: [
+                    "Kỹ sư", "Bác sĩ", "Luật sư", "Kế toán viên", 
+                    "Quản lý dự án", "Nhà phân tích tài chính", "Nhà quản lý", "Nhà khoa học dữ liệu"
+                ],
+                highExtraversion: [
+                    "Nhân viên bán hàng", "Nhà tiếp thị", "Giáo viên", "Nhà quản lý nhân sự", 
+                    "Chính trị gia", "Người dẫn chương trình", "Nhà tư vấn", "Nhà môi giới bất động sản"
+                ],
+                highAgreeableness: [
+                    "Nhà tư vấn", "Y tá", "Nhà trị liệu", "Giáo viên", 
+                    "Nhân viên xã hội", "Nhà tâm lý học lâm sàng", "Nhà tư vấn hướng nghiệp", "Nhà hoạt động xã hội"
+                ],
+                lowNeuroticism: [
+                    "Bác sĩ phẫu thuật", "Phi công", "Quản lý khủng hoảng", "Nhà đàm phán", 
+                    "Nhà lãnh đạo", "Nhà đầu tư", "Nhà báo chiến trường", "Nhân viên cứu hộ"
+                ]
+            };
+            
+            // Get result from localStorage
+            const bigFiveResult = JSON.parse(localStorage.getItem('bigFiveResult')) || {
+                openness: 75,
+                conscientiousness: 82,
+                extraversion: 45,
+                agreeableness: 68,
+                neuroticism: 35
+            };
+            
+            // Update UI with result
+            updateTraitBar('openness', bigFiveResult.openness);
+            updateTraitBar('conscientiousness', bigFiveResult.conscientiousness);
+            updateTraitBar('extraversion', bigFiveResult.extraversion);
+            updateTraitBar('agreeableness', bigFiveResult.agreeableness);
+            updateTraitBar('neuroticism', bigFiveResult.neuroticism);
+            
+            // Update trait descriptions based on scores
+            updateTraitDescription('openness', bigFiveResult.openness);
+            updateTraitDescription('conscientiousness', bigFiveResult.conscientiousness);
+            updateTraitDescription('extraversion', bigFiveResult.extraversion);
+            updateTraitDescription('agreeableness', bigFiveResult.agreeableness);
+            updateTraitDescription('neuroticism', bigFiveResult.neuroticism);
+            
+            // Generate career suggestions based on highest traits
+            generateCareerSuggestions(bigFiveResult);
+            
+            // Generate personality profile summary
+            generateProfileSummary(bigFiveResult);
+            
+            // Save result button
+            const saveResultBtn = document.getElementById('save-result');
+            saveResultBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (auth.isLoggedIn()) {
+                    // In a real implementation, this would save to a database
+                    utils.showNotification('Kết quả đã được lưu thành công!');
+                } else {
+                    if (confirm('Bạn cần đăng nhập để lưu kết quả. Bạn có muốn đăng nhập ngay bây giờ không?')) {
+                        window.location.href = '../login.html';
+                    }
+                }
+            });
+            
+            // Helper function to update trait bar
+            function updateTraitBar(trait, score) {
+                const fill = document.getElementById(`${trait}-fill`);
+                const scoreElement = document.getElementById(`${trait}-score`);
+                
+                fill.style.width = `${score}%`;
+                scoreElement.textContent = `${score}%`;
+            }
+            
+            // Helper function to update trait description
+            function updateTraitDescription(trait, score) {
+                const descriptionElement = document.getElementById(`${trait}-description`);
+                
+                if (score < 40) {
+                    descriptionElement.textContent = traitDescriptions[trait].low;
+                } else if (score < 70) {
+                    descriptionElement.textContent = traitDescriptions[trait].medium;
+                } else {
+                    descriptionElement.textContent = traitDescriptions[trait].high;
+                }
+            }
+            
+            // Generate career suggestions based on highest traits
+            function generateCareerSuggestions(result) {
+                const careerGrid = document.getElementById('career-grid');
+                const careers = [];
+                
+                // Add careers based on high scores
+                if (result.openness >= 70) {
+                    careers.push(...careerSuggestions.highOpenness);
+                }
+                
+                if (result.conscientiousness >= 70) {
+                    careers.push(...careerSuggestions.highConscientiousness);
+                }
+                
+                if (result.extraversion >= 70) {
+                    careers.push(...careerSuggestions.highExtraversion);
+                }
+                
+                if (result.agreeableness >= 70) {
+                    careers.push(...careerSuggestions.highAgreeableness);
+                }
+                
+                if (result.neuroticism < 40) {
+                    careers.push(...careerSuggestions.lowNeuroticism);
+                }
+                
+                // If no high scores, use default careers
+                if (careers.length === 0) {
+                    careers.push(
+                        "Nhà nghiên cứu khoa học", "Kỹ sư phần mềm", "Nhà thiết kế", "Quản lý dự án",
+                        "Giáo viên", "Nhà văn", "Kiến trúc sư", "Nhà tư vấn",
+                        "Nhà phân tích dữ liệu", "Nhà tâm lý học", "Nhà quy hoạch đô thị", "Nhà báo"
+                    );
+                }
+                
+                // Remove duplicates and limit to 12 careers
+                const uniqueCareers = [...new Set(careers)].slice(0, 12);
+                
+                // Update career grid
+                careerGrid.innerHTML = '';
+                uniqueCareers.forEach(career => {
+                    const div = document.createElement('div');
+                    div.className = 'career-item';
+                    div.textContent = career;
+                    careerGrid.appendChild(div);
+                });
+            }
+            
+            // Generate personality profile summary
+            function generateProfileSummary(result) {
+                const profileSummary = document.getElementById('profile-summary');
+                const profileStrengths = document.getElementById('profile-strengths');
+                
+                let summary = '';
+                let strengths = '';
+                
+                // Generate summary based on highest and lowest traits
+                const traits = [
+                    { name: 'openness', score: result.openness, label: 'sự cởi mở' },
+                    { name: 'conscientiousness', score: result.conscientiousness, label: 'tận tâm' },
+                    { name: 'extraversion', score: result.extraversion, label: 'hướng ngoại' },
+                    { name: 'agreeableness', score: result.agreeableness, label: 'dễ chịu' },
+                    { name: 'neuroticism', score: result.neuroticism, label: 'lo lắng' }
+                ];
+                
+                // Sort traits by score
+                traits.sort((a, b) => b.score - a.score);
+                
+                // Generate summary
+                summary = `Với điểm số cao về ${traits[0].label} và ${traits[1].label}, `;
+                
+                if (traits[0].name === 'openness') {
+                    summary += 'bạn là người sáng tạo, tò mò và thích khám phá ý tưởng mới. ';
+                } else if (traits[0].name === 'conscientiousness') {
+                    summary += 'bạn là người có tổ chức, đáng tin cậy và làm việc có kế hoạch. ';
+                } else if (traits[0].name === 'extraversion') {
+                    summary += 'bạn là người hướng ngoại, năng động và thích tương tác xã hội. ';
+                } else if (traits[0].name === 'agreeableness') {
+                    summary += 'bạn là người thân thiện, hợp tác và quan tâm đến người khác. ';
+                } else if (traits[0].name === 'neuroticism') {
+                    summary += 'bạn có thể nhạy cảm về mặt cảm xúc và đôi khi dễ bị căng thẳng. ';
+                }
+                
+                if (traits[1].name === 'openness') {
+                    summary += 'Bạn cũng có tính sáng tạo và tò mò cao. ';
+                } else if (traits[1].name === 'conscientiousness') {
+                    summary += 'Bạn cũng rất có tổ chức và đáng tin cậy. ';
+                } else if (traits[1].name === 'extraversion') {
+                    summary += 'Bạn cũng thích tương tác xã hội và làm việc với người khác. ';
+                } else if (traits[1].name === 'agreeableness') {
+                    summary += 'Bạn cũng rất hòa đồng và dễ hợp tác. ';
+                } else if (traits[1].name === 'neuroticism') {
+                    summary += 'Bạn cũng có thể dễ bị căng thẳng trong một số tình huống. ';
+                }
+                
+                // Add information about middle trait
+                summary += `Điểm số ${traits[2].score < 40 ? 'thấp' : traits[2].score < 70 ? 'trung bình' : 'cao'} về ${traits[2].label} cho thấy `;
+                
+                if (traits[2].name === 'openness') {
+                    summary += traits[2].score < 40 ? 'bạn thích những điều quen thuộc và thực tế. ' : traits[2].score < 70 ? 'bạn có sự cân bằng giữa tư duy thực tế và sáng tạo. ' : 'bạn rất sáng tạo và thích khám phá ý tưởng mới. ';
+                } else if (traits[2].name === 'conscientiousness') {
+                    summary += traits[2].score < 40 ? 'bạn thích sự linh hoạt hơn là lập kế hoạch chi tiết. ' : traits[2].score < 70 ? 'bạn có sự cân bằng giữa tính tổ chức và linh hoạt. ' : 'bạn rất có tổ chức và làm việc có kế hoạch. ';
+                } else if (traits[2].name === 'extraversion') {
+                    summary += traits[2].score < 40 ? 'bạn thích thời gian một mình hơn là tương tác xã hội. ' : traits[2].score < 70 ? 'bạn có thể thích nghi với cả môi trường xã hội và làm việc độc lập. ' : 'bạn thích tương tác xã hội và làm việc với người khác. ';
+                } else if (traits[2].name === 'agreeableness') {
+                    summary += traits[2].score < 40 ? 'bạn thường thẳng thắn và đôi khi có thể cạnh tranh. ' : traits[2].score < 70 ? 'bạn có sự cân bằng giữa tính cạnh tranh và hợp tác. ' : 'bạn rất thân thiện và hợp tác với người khác. ';
+                } else if (traits[2].name === 'neuroticism') {
+                    summary += traits[2].score < 40 ? 'bạn thường bình tĩnh và ít bị căng thẳng. ' : traits[2].score < 70 ? 'bạn có sự cân bằng giữa sự ổn định và nhạy cảm cảm xúc. ' : 'bạn có thể dễ bị căng thẳng trong các tình huống khó khăn. ';
+                }
+                
+                // Add information about lowest traits
+                summary += `Điểm số ${traits[4].score < 40 ? 'thấp' : traits[4].score < 70 ? 'trung bình' : 'cao'} về ${traits[4].label} cho thấy `;
+                
+                if (traits[4].name === 'openness') {
+                    summary += traits[4].score < 40 ? 'bạn thích những điều quen thuộc và thực tế.' : traits[4].score < 70 ? 'bạn có sự cân bằng giữa tư duy thực tế và sáng tạo.' : 'bạn rất sáng tạo và thích khám phá ý tưởng mới.';
+                } else if (traits[4].name === 'conscientiousness') {
+                    summary += traits[4].score < 40 ? 'bạn thích sự linh hoạt hơn là lập kế hoạch chi tiết.' : traits[4].score < 70 ? 'bạn có sự cân bằng giữa tính tổ chức và linh hoạt.' : 'bạn rất có tổ chức và làm việc có kế hoạch.';
+                } else if (traits[4].name === 'extraversion') {
+                    summary += traits[4].score < 40 ? 'bạn thích thời gian một mình hơn là tương tác xã hội.' : traits[4].score < 70 ? 'bạn có thể thích nghi với cả môi trường xã hội và làm việc độc lập.' : 'bạn thích tương tác xã hội và làm việc với người khác.';
+                } else if (traits[4].name === 'agreeableness') {
+                    summary += traits[4].score < 40 ? 'bạn thường thẳng thắn và đôi khi có thể cạnh tranh.' : traits[4].score < 70 ? 'bạn có sự cân bằng giữa tính cạnh tranh và hợp tác.' : 'bạn rất thân thiện và hợp tác với người khác.';
+                } else if (traits[4].name === 'neuroticism') {
+                    summary += traits[4].score < 40 ? 'bạn thường bình tĩnh và ít bị căng thẳng.' : traits[4].score < 70 ? 'bạn có sự cân bằng giữa sự ổn định và nhạy cảm cảm xúc.' : 'bạn có thể dễ bị căng thẳng trong các tình huống khó khăn.';
+                }
+                
+                // Generate strengths
+                strengths = 'Điểm mạnh của bạn bao gồm ';
+                
+                if (result.openness >= 70) {
+                    strengths += 'khả năng sáng tạo, tư duy đổi mới, ';
+                }
+                
+                if (result.conscientiousness >= 70) {
+                    strengths += 'tính tổ chức, đáng tin cậy, ';
+                }
+                
+                if (result.extraversion >= 70) {
+                    strengths += 'kỹ năng giao tiếp tốt, khả năng làm việc nhóm, ';
+                }
+                
+                if (result.agreeableness >= 70) {
+                    strengths += 'tính hợp tác, khả năng tạo môi trường hài hòa, ';
+                }
+                
+                if (result.neuroticism < 40) {
+                    strengths += 'khả năng đối phó với áp lực tốt, sự ổn định cảm xúc, ';
+                }
+                
+                // Remove trailing comma and space
+                strengths = strengths.slice(0, -2);
+                
+                strengths += '. Những đặc điểm này giúp bạn thành công trong các vai trò ';
+                
+                if (result.openness >= 70 && result.conscientiousness >= 70) {
+                    strengths += 'đòi hỏi sự sáng tạo có tổ chức như nghiên cứu, thiết kế, hoặc phát triển sản phẩm.';
+                } else if (result.openness >= 70 && result.extraversion >= 70) {
+                    strengths += 'sáng tạo và tương tác như giảng dạy, tiếp thị, hoặc nghệ thuật biểu diễn.';
+                } else if (result.conscientiousness >= 70 && result.neuroticism < 40) {
+                    strengths += 'đòi hỏi sự tổ chức và khả năng chịu áp lực như quản lý dự án hoặc y tế.';
+                } else if (result.agreeableness >= 70 && result.extraversion >= 70) {
+                    strengths += 'liên quan đến việc giúp đỡ và làm việc với người khác như tư vấn, giảng dạy, hoặc chăm sóc sức khỏe.';
+                } else {
+                    strengths += 'phù hợp với tính cách của bạn, như được gợi ý trong phần ngành nghề phù hợp.';
+                }
+                
+                profileSummary.textContent = summary;
+                profileStrengths.textContent = strengths;
+            }
+        });
+    </script>
+</body>
+</html>

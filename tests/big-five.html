@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Big Five - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .test-header {
+            background-color: rgba(108, 99, 255, 0.1);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .test-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .test-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .test-info {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .test-info-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .test-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .test-info-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+        
+        .test-info-item i {
+            font-size: 30px;
+            color: var(--big-five-color);
+            margin-bottom: 15px;
+        }
+        
+        .test-info-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .test-info-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .test-instructions {
+            margin-bottom: 30px;
+        }
+        
+        .test-instructions h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .test-instructions p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .test-instructions ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .test-instructions ul li {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .start-test-btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: var(--big-five-color);
+            color: white;
+            text-align: center;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .start-test-btn:hover {
+            background-color: #5a52e5;
+            transform: translateY(-3px);
+        }
+        
+        .test-content {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            display: none;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+        
+        .test-progress {
+            margin-bottom: 30px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--big-five-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .question-container {
+            margin-bottom: 30px;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .likert-scale {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .likert-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            width: 18%;
+        }
+        
+        .likert-option:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .likert-option.selected {
+            background-color: rgba(108, 99, 255, 0.1);
+        }
+        
+        .likert-radio {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .likert-radio:checked {
+            border-color: var(--big-five-color);
+        }
+        
+        .likert-radio:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background-color: var(--big-five-color);
+            border-radius: 50%;
+        }
+        
+        .likert-label {
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+        
+        .test-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .prev-btn {
+            background-color: #e9ecef;
+            color: var(--text-color);
+        }
+        
+        .prev-btn:hover {
+            background-color: #dee2e6;
+        }
+        
+        .next-btn {
+            background-color: var(--big-five-color);
+            color: white;
+        }
+        
+        .next-btn:hover {
+            background-color: #5a52e5;
+        }
+        
+        .submit-btn {
+            background-color: var(--success-color);
+            color: white;
+            display: none;
+        }
+        
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        
+        @media (max-width: 768px) {
+            .test-header h2 {
+                font-size: 2rem;
+            }
+            
+            .test-container {
+                padding: 20px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .likert-scale {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .likert-option {
+                width: 45%;
+                margin-bottom: 10px;
+            }
+            
+            .nav-btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hướng Nghiệp Tương Lai</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../tests.html" class="active">Bài kiểm tra</a></li>
+                    <li><a href="../careers.html">Ngành nghề</a></li>
+                    <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="../progress.html">Theo dõi tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="../login.html" class="btn btn-login">Đăng nhập</a>
+                <a href="../register.html" class="btn btn-register">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="test-header">
+        <div class="container">
+            <h2>Bài Kiểm Tra Big Five</h2>
+            <p>Đánh giá năm đặc điểm tính cách chính: sự cởi mở, tận tâm, hướng ngoại, dễ chịu và sự ổn định cảm xúc.</p>
+        </div>
+    </section>
+
+    <section class="test-info" id="test-intro">
+        <div class="container">
+            <div class="test-info-container">
+                <div class="test-info-grid">
+                    <div class="test-info-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Thời gian</h3>
+                        <p>10-15 phút</p>
+                    </div>
+                    <div class="test-info-item">
+                        <i class="fas fa-list-ol"></i>
+                        <h3>Số câu hỏi</h3>
+                        <p>50 câu</p>
+                    </div>
+                    <div class="test-info-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Kết quả</h3>
+                        <p>5 đặc điểm tính cách</p>
+                    </div>
+                    <div class="test-info-item">
+                        <i class="fas fa-user-check"></i>
+                        <h3>Độ chính xác</h3>
+                        <p>Cao</p>
+                    </div>
+                </div>
+                
+                <div class="test-instructions">
+                    <h3>Hướng dẫn làm bài</h3>
+                    <p>Bài kiểm tra Big Five (còn gọi là Mô hình Năm Yếu tố) đánh giá năm đặc điểm tính cách chính của bạn: sự cởi mở (Openness), tận tâm (Conscientiousness), hướng ngoại (Extraversion), dễ chịu (Agreeableness) và sự ổn định cảm xúc (Neuroticism).</p>
+                    
+                    <p>Để có kết quả chính xác nhất, vui lòng làm theo các hướng dẫn sau:</p>
+                    
+                    <ul>
+                        <li>Đọc kỹ từng câu hỏi và chọn mức độ đồng ý hoặc không đồng ý với mỗi phát biểu.</li>
+                        <li>Trả lời tất cả các câu hỏi một cách trung thực, dựa trên cách bạn thực sự là, không phải cách bạn muốn trở thành.</li>
+                        <li>Không có câu trả lời đúng hay sai. Hãy chọn phương án phản ánh đúng nhất con người bạn.</li>
+                        <li>Cố gắng không chọn câu trả lời trung lập quá nhiều. Hãy nghiêng về một bên nếu có thể.</li>
+                        <li>Làm bài trong một môi trường yên tĩnh và không bị gián đoạn.</li>
+                    </ul>
+                    
+                    <p>Sau khi hoàn thành bài kiểm tra, bạn sẽ nhận được kết quả chi tiết về năm đặc điểm tính cách của mình, cùng với các gợi ý về ngành nghề phù hợp dựa trên tính cách của bạn.</p>
+                </div>
+                
+                <a href="#" class="start-test-btn" id="start-test">Bắt đầu làm bài</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="test-content" id="test-questions">
+        <div class="container">
+            <div class="test-container">
+                <div class="test-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="current-question">Câu hỏi 1/50</span>
+                        <span id="time-remaining">Thời gian còn lại: 15:00</span>
+                    </div>
+                </div>
+                
+                <div class="question-container" id="question-container">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+                
+                <div class="test-navigation">
+                    <button class="nav-btn prev-btn" id="prev-btn">Câu trước</button>
+                    <button class="nav-btn next-btn" id="next-btn">Câu tiếp theo</button>
+                    <button class="nav-btn submit-btn" id="submit-btn">Nộp bài</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hướng Nghiệp Tương Lai</h3>
+                    <p>Đồng hành cùng học sinh trên con đường khám phá nghề nghiệp</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="../index.html">Trang chủ</a></li>
+                        <li><a href="../tests.html">Bài kiểm tra</a></li>
+                        <li><a href="../careers.html">Ngành nghề</a></li>
+                        <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="../faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="../contact.html">Liên hệ</a></li>
+                        <li><a href="../privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="../terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin mới nhất về hướng nghiệp và giáo dục</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn btn-newsletter">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Big Five Test Questions
+            const bigFiveQuestions = [
+                {
+                    id: 1,
+                    text: "Tôi là người hay nói chuyện.",
+                    trait: "E" // Extraversion
+                },
+                {
+                    id: 2,
+                    text: "Tôi thường tìm lỗi ở người khác.",
+                    trait: "A", // Agreeableness (reverse scored)
+                    reverse: true
+                },
+                {
+                    id: 3,
+                    text: "Tôi làm việc kỹ lưỡng và cẩn thận.",
+                    trait: "C" // Conscientiousness
+                },
+                {
+                    id: 4,
+                    text: "Tôi thường cảm thấy buồn chán, trầm cảm.",
+                    trait: "N" // Neuroticism
+                },
+                {
+                    id: 5,
+                    text: "Tôi tò mò về nhiều điều khác nhau.",
+                    trait: "O" // Openness
+                },
+                {
+                    id: 6,
+                    text: "Tôi là người hướng ngoại, thân thiện.",
+                    trait: "E" // Extraversion
+                },
+                {
+                    id: 7,
+                    text: "Tôi thường giúp đỡ và vị tha với người khác.",
+                    trait: "A" // Agreeableness
+                },
+                {
+                    id: 8,
+                    text: "Tôi đôi khi có xu hướng bừa bộn.",
+                    trait: "C", // Conscientiousness (reverse scored)
+                    reverse: true
+                },
+                {
+                    id: 9,
+                    text: "Tôi dễ dàng xử lý căng thẳng.",
+                    trait: "N", // Neuroticism (reverse scored)
+                    reverse: true
+                },
+                {
+                    id: 10,
+                    text: "Tôi có trí tưởng tượng phong phú.",
+                    trait: "O" // Openness
+                }
+                // Thêm 40 câu hỏi nữa để đủ 50 câu
+                // Trong triển khai thực tế, sẽ có đủ 50 câu hỏi
+            ];
+            
+            // Test variables
+            let currentQuestionIndex = 0;
+            const userAnswers = new Array(bigFiveQuestions.length).fill(null);
+            let testStarted = false;
+            let testTimer;
+            let timeRemaining = 15 * 60; // 15 minutes in seconds
+            
+            // DOM elements
+            const testIntroSection = document.getElementById('test-intro');
+            const testQuestionsSection = document.getElementById('test-questions');
+            const startTestBtn = document.getElementById('start-test');
+            const questionContainer = document.getElementById('question-container');
+            const progressFill = document.getElementById('progress-fill');
+            const currentQuestionText = document.getElementById('current-question');
+            const timeRemainingText = document.getElementById('time-remaining');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Start test button click event
+            startTestBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                testIntroSection.style.display = 'none';
+                testQuestionsSection.style.display = 'block';
+                testStarted = true;
+                startTimer();
+                loadQuestion(currentQuestionIndex);
+                updateNavButtons();
+            });
+            
+            // Previous button click event
+            prevBtn.addEventListener('click', function() {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    loadQuestion(currentQuestionIndex);
+                    updateNavButtons();
+                }
+            });
+            
+            // Next button click event
+            nextBtn.addEventListener('click', function() {
+                if (currentQuestionIndex < bigFiveQuestions.length - 1) {
+                    currentQuestionIndex++;
+                    loadQuestion(currentQuestionIndex);
+                    updateNavButtons();
+                }
+            });
+            
+            // Submit button click event
+            submitBtn.addEventListener('click', function() {
+                // Check if all questions are answered
+                const unansweredQuestions = userAnswers.filter(answer => answer === null).length;
+                
+                if (unansweredQuestions > 0) {
+                    if (confirm(`Bạn còn ${unansweredQuestions} câu hỏi chưa trả lời. Bạn có chắc chắn muốn nộp bài không?`)) {
+                        submitTest();
+                    }
+                } else {
+                    submitTest();
+                }
+            });
+            
+            // Load question function
+            function loadQuestion(index) {
+                const question = bigFiveQuestions[index];
+                
+                // Update progress
+                const progress = ((index + 1) / bigFiveQuestions.length) * 100;
+                progressFill.style.width = `${progress}%`;
+                currentQuestionText.textContent = `Câu hỏi ${index + 1}/${bigFiveQuestions.length}`;
+                
+                // Create question HTML
+                questionContainer.innerHTML = `
+                    <div class="question-text">${question.text}</div>
+                    <div class="likert-scale">
+                        <div class="likert-option ${userAnswers[index] === 1 ? 'selected' : ''}">
+                            <input type="radio" name="q${question.id}" value="1" class="likert-radio" ${userAnswers[index] === 1 ? 'checked' : ''}>
+                            <span class="likert-label">Hoàn toàn không đồng ý</span>
+                        </div>
+                        <div class="likert-option ${userAnswers[index] === 2 ? 'selected' : ''}">
+                            <input type="radio" name="q${question.id}" value="2" class="likert-radio" ${userAnswers[index] === 2 ? 'checked' : ''}>
+                            <span class="likert-label">Không đồng ý</span>
+                        </div>
+                        <div class="likert-option ${userAnswers[index] === 3 ? 'selected' : ''}">
+                            <input type="radio" name="q${question.id}" value="3" class="likert-radio" ${userAnswers[index] === 3 ? 'checked' : ''}>
+                            <span class="likert-label">Trung lập</span>
+                        </div>
+                        <div class="likert-option ${userAnswers[index] === 4 ? 'selected' : ''}">
+                            <input type="radio" name="q${question.id}" value="4" class="likert-radio" ${userAnswers[index] === 4 ? 'checked' : ''}>
+                            <span class="likert-label">Đồng ý</span>
+                        </div>
+                        <div class="likert-option ${userAnswers[index] === 5 ? 'selected' : ''}">
+                            <input type="radio" name="q${question.id}" value="5" class="likert-radio" ${userAnswers[index] === 5 ? 'checked' : ''}>
+                            <span class="likert-label">Hoàn toàn đồng ý</span>
+                        </div>
+                    </div>
+                `;
+                
+                // Add click event to options
+                const likertOptions = questionContainer.querySelectorAll('.likert-option');
+                likertOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        const radio = this.querySelector('.likert-radio');
+                        radio.checked = true;
+                        
+                        const value = parseInt(radio.value);
+                        userAnswers[currentQuestionIndex] = value;
+                        
+                        // Update selected state
+                        likertOptions.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                    });
+                });
+            }
+            
+            // Update navigation buttons
+            function updateNavButtons() {
+                prevBtn.style.display = currentQuestionIndex === 0 ? 'none' : 'block';
+                
+                if (currentQuestionIndex === bigFiveQuestions.length - 1) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'block';
+                } else {
+                    nextBtn.style.display = 'block';
+                    submitBtn.style.display = 'none';
+                }
+            }
+            
+            // Start timer function
+            function startTimer() {
+                testTimer = setInterval(function() {
+                    timeRemaining--;
+                    
+                    const minutes = Math.floor(timeRemaining / 60);
+                    const seconds = timeRemaining % 60;
+                    timeRemainingText.textContent = `Thời gian còn lại: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                    
+                    if (timeRemaining <= 0) {
+                        clearInterval(testTimer);
+                        alert('Hết thời gian làm bài! Bài kiểm tra của bạn sẽ được nộp tự động.');
+                        submitTest();
+                    }
+                }, 1000);
+            }
+            
+            // Submit test function
+            function submitTest() {
+                clearInterval(testTimer);
+                
+                // Calculate Big Five scores
+                const result = calculateBigFiveScores();
+                
+                // Save result to localStorage for demo purposes
+                localStorage.setItem('bigFiveResult', JSON.stringify(result));
+                
+                // Redirect to results page
+                window.location.href = 'big-five-result.html';
+            }
+            
+            // Calculate Big Five scores function
+            function calculateBigFiveScores() {
+                // Initialize scores
+                let openness = 0;
+                let conscientiousness = 0;
+                let extraversion = 0;
+                let agreeableness = 0;
+                let neuroticism = 0;
+                
+                // Count questions for each trait
+                let oCount = 0, cCount = 0, eCount = 0, aCount = 0, nCount = 0;
+                
+                // Calculate scores
+                bigFiveQuestions.forEach((question, index) => {
+                    if (userAnswers[index] === null) return;
+                    
+                    let score = userAnswers[index];
+                    
+                    // Reverse score if needed
+                    if (question.reverse) {
+                        score = 6 - score; // 5-point scale: 1 becomes 5, 2 becomes 4, etc.
+                    }
+                    
+                    // Add to appropriate trait
+                    switch (question.trait) {
+                        case 'O':
+                            openness += score;
+                            oCount++;
+                            break;
+                        case 'C':
+                            conscientiousness += score;
+                            cCount++;
+                            break;
+                        case 'E':
+                            extraversion += score;
+                            eCount++;
+                            break;
+                        case 'A':
+                            agreeableness += score;
+                            aCount++;
+                            break;
+                        case 'N':
+                            neuroticism += score;
+                            nCount++;
+                            break;
+                    }
+                });
+                
+                // Calculate average scores (0-100 scale)
+                const oScore = oCount > 0 ? Math.round((openness / (oCount * 5)) * 100) : 0;
+                const cScore = cCount > 0 ? Math.round((conscientiousness / (cCount * 5)) * 100) : 0;
+                const eScore = eCount > 0 ? Math.round((extraversion / (eCount * 5)) * 100) : 0;
+                const aScore = aCount > 0 ? Math.round((agreeableness / (aCount * 5)) * 100) : 0;
+                const nScore = nCount > 0 ? Math.round((neuroticism / (nCount * 5)) * 100) : 0;
+                
+                return {
+                    openness: oScore,
+                    conscientiousness: cScore,
+                    extraversion: eScore,
+                    agreeableness: aScore,
+                    neuroticism: nScore
+                };
+            }
+        });
+    </script>
+</body>
+</html>

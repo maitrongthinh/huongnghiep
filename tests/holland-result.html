@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Holland Codes - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --holland-color: #ff7e5f;
+        }
+        
+        .result-header {
+            background-color: rgba(255, 126, 95, 0.1);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .result-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .result-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .result-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        
+        .result-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .result-code {
+            background-color: var(--holland-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .result-code h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-code p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .result-details {
+            padding: 30px;
+        }
+        
+        .code-description {
+            margin-bottom: 30px;
+        }
+        
+        .code-description h4 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .code-description p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .holland-scores {
+            margin-bottom: 30px;
+        }
+        
+        .holland-score {
+            margin-bottom: 20px;
+        }
+        
+        .score-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .score-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .score-name i {
+            margin-right: 10px;
+        }
+        
+        .score-value {
+            font-weight: 600;
+            color: var(--holland-color);
+        }
+        
+        .score-bar-container {
+            height: 15px;
+            background-color: #f0f4ff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .score-fill {
+            height: 100%;
+            background-color: var(--holland-color);
+            border-radius: 10px;
+        }
+        
+        .holland-types-detail {
+            margin-bottom: 30px;
+        }
+        
+        .holland-types-detail h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .holland-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .holland-type-item {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+        }
+        
+        .holland-type-item h5 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+        
+        .holland-type-item h5 i {
+            color: var(--holland-color);
+            margin-right: 10px;
+        }
+        
+        .holland-type-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .holland-type-item ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .holland-type-item ul li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        .career-suggestions {
+            margin-bottom: 30px;
+        }
+        
+        .career-suggestions h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--dark-color);
+        }
+        
+        .career-suggestions h4 i {
+            color: var(--holland-color);
+            margin-right: 10px;
+        }
+        
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .career-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .career-item:hover {
+            background-color: var(--holland-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-retake {
+            background-color: #f8f9fa;
+            color: var(--text-color);
+        }
+        
+        .btn-retake:hover {
+            background-color: #e9ecef;
+        }
+        
+        .btn-explore {
+            background-color: var(--holland-color);
+            color: white;
+        }
+        
+        .btn-explore:hover {
+            background-color: #ff6a45;
+        }
+        
+        .btn-save {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background-color: #218838;
+        }
+        
+        @media (max-width: 768px) {
+            .holland-type-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hướng Nghiệp Tương Lai</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../tests.html" class="active">Bài kiểm tra</a></li>
+                    <li><a href="../careers.html">Ngành nghề</a></li>
+                    <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="../progress.html">Theo dõi tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="../login.html" class="btn btn-login">Đăng nhập</a>
+                <a href="../register.html" class="btn btn-register">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="result-header">
+        <div class="container">
+            <h2>Kết Quả Bài Kiểm Tra Holland Codes</h2>
+            <p>Dưới đây là kết quả chi tiết về sáu loại hứng thú nghề nghiệp của bạn và các ngành nghề phù hợp.</p>
+        </div>
+    </section>
+
+    <section class="result-content">
+        <div class="container">
+            <div class="result-container">
+                <div class="result-card">
+                    <div class="result-code">
+                        <h3 id="holland-code">SIA</h3>
+                        <p id="holland-code-title">Xã hội - Nghiên cứu - Nghệ thuật</p>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="code-description">
+                            <h4>Mã Holland của bạn: <span id="holland-code-text">SIA</span></h4>
+                            <p id="code-description">Với mã Holland SIA, bạn có xu hướng thích làm việc với người khác để giúp đỡ, thông tin và hướng dẫn (S - Xã hội), kết hợp với sự tò mò, phân tích và học hỏi (I - Nghiên cứu), cùng với khả năng sáng tạo và biểu đạt (A - Nghệ thuật). Sự kết hợp này cho thấy bạn có thể phù hợp với các nghề liên quan đến giáo dục, tư vấn, nghiên cứu xã hội, hoặc các lĩnh vực sáng tạo có tính ứng dụng cao.</p>
+                            
+                            <p id="code-strengths">Điểm mạnh của bạn bao gồm khả năng hiểu và làm việc hiệu quả với người khác, tư duy phân tích và giải quyết vấn đề, cùng với óc sáng tạo và khả năng biểu đạt. Bạn thường có khả năng giao tiếp tốt, kiên nhẫn, và có thể kết hợp giữa lý thuyết và thực hành một cách sáng tạo.</p>
+                        </div>
+                        
+                        <div class="holland-scores">
+                            <div class="holland-score">
+                                <div class="score-header">
+                                    <div class="score-name">
+                                        <i class="fas fa-hands-helping" style="color: #4A89DC;"></i>
+                                        Xã hội (Social)
+                                    </div>
+                                    <div class="score-value" id="social-score">80%</div>
+                                </div>
+                                <div class="score-bar-container">
+                                    <div class="score-fill" id="social-fill" style="width: 80%; background-color: #4A89DC;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="holland-score">
+                                <div class="score-header">
+                                    <div class="score-name">
+                                        <i class="fas fa-microscope" style="color: #967ADC;"></i>
+                                        Nghiên cứu (Investigative)
+                                    </div>
+                                    <div class="score-value" id="investigative-score">70%</div>
+                                </div>
+                                <div class="score-bar-container">
+                                    <div class="score-fill" id="investigative-fill" style="width: 70%; background-color: #967ADC;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="holland-score">
+                                <div class="score-header">
+                                    <div class="score-name">
+                                        <i class="fas fa-paint-brush" style="color: #D770AD;"></i>
+                                        Nghệ thuật (Artistic)
+                                    </div>
+                                    <div class="score-value" id="artistic-score">60%</div>
+                                </div>
+                                <div class="score-bar-container">
+                                    <div class="score-fill" id="artistic-fill" style="width: 60%; background-color: #D770AD;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="holland-score">
+                                <div class="score-header">
+                                    <div class="score-name">
+                                        <i class="fas fa-bullhorn" style="color: #F6BB42;"></i>
+                                        Quản lý (Enterprising)
+                                    </div>
+                                    <div class="score-value" id="enterprising-score">40%</div>
+                                </div>
+                                <div class="score-bar-container">
+                                    <div class="score-fill" id="enterprising-fill" style="width: 40%; background-color: #F6BB42;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="holland-score">
+                                <div class="score-header">
+                                    <div class="score-name">
+                                        <i class="fas fa-tools" style="color: #E9573F;"></i>
+                                        Thực tế (Realistic)
+                                    </div>
+                                    <div class="score-value" id="realistic-score">30%</div>
+                                </div>
+                                <div class="score-bar-container">
+                                    <div class="score-fill" id="realistic-fill" style="width: 30%; background-color: #E9573F;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="holland-score">
+                                <div class="score-header">
+                                    <div class="score-name">
+                                        <i class="fas fa-calculator" style="color: #37BC9B;"></i>
+                                        Tổ chức (Conventional)
+                                    </div>
+                                    <div class="score-value" id="conventional-score">20%</div>
+                                </div>
+                                <div class="score-bar-container">
+                                    <div class="score-fill" id="conventional-fill" style="width: 20%; background-color: #37BC9B;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="holland-types-detail">
+                            <h4>Chi tiết về các loại hứng thú của bạn</h4>
+                            <div class="holland-type-grid">
+                                <div class="holland-type-item">
+                                    <h5><i class="fas fa-hands-helping"></i> Xã hội (S)</h5>
+                                    <p>Bạn thích làm việc với người khác để giúp đỡ, thông tin, hướng dẫn, đào tạo hoặc chữa bệnh. Bạn thường có khả năng giao tiếp tốt, thân thiện, và quan tâm đến người khác.</p>
+                                    <p><strong>Đặc điểm:</strong></p>
+                                    <ul>
+                                        <li>Thích giúp đỡ và làm việc với người khác</li>
+                                        <li>Có khả năng giao tiếp tốt</li>
+                                        <li>Kiên nhẫn và thấu hiểu</li>
+                                        <li>Thích giải quyết vấn đề xã hội</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="holland-type-item">
+                                    <h5><i class="fas fa-microscope"></i> Nghiên cứu (I)</h5>
+                                    <p>Bạn thích quan sát, học hỏi, điều tra, phân tích, đánh giá hoặc giải quyết vấn đề. Bạn thường thích làm việc độc lập và giải quyết các vấn đề trừu tượng.</p>
+                                    <p><strong>Đặc điểm:</strong></p>
+                                    <ul>
+                                        <li>Tò mò và thích khám phá</li>
+                                        <li>Có tư duy phân tích</li>
+                                        <li>Thích giải quyết vấn đề phức tạp</li>
+                                        <li>Thích học hỏi và nghiên cứu</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="holland-type-item">
+                                    <h5><i class="fas fa-paint-brush"></i> Nghệ thuật (A)</h5>
+                                    <p>Bạn thích các hoạt động sáng tạo như âm nhạc, viết lách, nghệ thuật thị giác hoặc biểu diễn. Bạn thường thích làm việc trong môi trường không có cấu trúc chặt chẽ.</p>
+                                    <p><strong>Đặc điểm:</strong></p>
+                                    <ul>
+                                        <li>Sáng tạo và giàu trí tưởng tượng</li>
+                                        <li>Thích tự do biểu đạt</li>
+                                        <li>Độc đáo và không theo quy ước</li>
+                                        <li>Nhạy cảm và trực giác</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="career-suggestions">
+                            <h4><i class="fas fa-briefcase"></i> Ngành nghề phù hợp</h4>
+                            <div class="career-grid" id="career-grid">
+                                <div class="career-item">Giáo viên</div>
+                                <div class="career-item">Nhà tâm lý học</div>
+                                <div class="career-item">Nhà tư vấn hướng nghiệp</div>
+                                <div class="career-item">Nhà nghiên cứu xã hội</div>
+                                <div class="career-item">Nhà trị liệu nghệ thuật</div>
+                                <div class="career-item">Nhà báo</div>
+                                <div class="career-item">Nhà xã hội học</div>
+                                <div class="career-item">Nhà nhân chủng học</div>
+                                <div class="career-item">Nhà tư vấn giáo dục</div>
+                                <div class="career-item">Nhà thiết kế chương trình giảng dạy</div>
+                                <div class="career-item">Nhà văn khoa học</div>
+                                <div class="career-item">Nhà làm phim tài liệu</div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <a href="holland.html" class="action-btn btn-retake">Làm lại bài kiểm tra</a>
+                            <a href="../careers.html" class="action-btn btn-explore">Khám phá ngành nghề</a>
+                            <a href="#" class="action-btn btn-save" id="save-result">Lưu kết quả</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hướng Nghiệp Tương Lai</h3>
+                    <p>Đồng hành cùng học sinh trên con đường khám phá nghề nghiệp</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="../index.html">Trang chủ</a></li>
+                        <li><a href="../tests.html">Bài kiểm tra</a></li>
+                        <li><a href="../careers.html">Ngành nghề</a></li>
+                        <li><a href="../learning-path.html">Kế hoạch học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="../faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="../contact.html">Liên hệ</a></li>
+                        <li><a href="../privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="../terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin mới nhất về hướng nghiệp và giáo dục</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn btn-newsletter">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Holland Code descriptions and career suggestions
+            const hollandData = {
+                'SIA': {
+                    title: 'Xã hội - Nghiên cứu - Nghệ thuật',
+                    description: 'Với mã Holland SIA, bạn có xu hướng thích làm việc với người khác để giúp đỡ, thông tin và hướng dẫn (S - Xã hội), kết hợp với sự tò mò, phân tích và học hỏi (I - Nghiên cứu), cùng với khả năng sáng tạo và biểu đạt (A - Nghệ thuật). Sự kết hợp này cho thấy bạn có thể phù hợp với các nghề liên quan đến giáo dục, tư vấn, nghiên cứu xã hội, hoặc các lĩnh vực sáng tạo có tính ứng dụng cao.',
+                    strengths: 'Điểm mạnh của bạn bao gồm khả năng hiểu và làm việc hiệu quả với người khác, tư duy phân tích và giải quyết vấn đề, cùng với óc sáng tạo và khả năng biểu đạt. Bạn thường có khả năng giao tiếp tốt, kiên nhẫn, và có thể kết hợp giữa lý thuyết và thực hành một cách sáng tạo.',
+                    careers: [
+                        'Giáo viên', 'Nhà tâm lý học', 'Nhà tư vấn hướng nghiệp', 'Nhà nghiên cứu xã hội',
+                        'Nhà trị liệu nghệ thuật', 'Nhà báo', 'Nhà xã hội học', 'Nhà nhân chủng học',
+                        'Nhà tư vấn giáo dục', 'Nhà thiết kế chương trình giảng dạy', 'Nhà văn khoa học', 'Nhà làm phim tài liệu'
+                    ]
+                },
+                'SAE': {
+                    title: 'Xã hội - Nghệ thuật - Quản lý',
+                    description: 'Với mã Holland SAE, bạn có xu hướng thích làm việc với người khác để giúp đỡ và hướng dẫn (S - Xã hội), kết hợp với khả năng sáng tạo và biểu đạt (A - Nghệ thuật), cùng với khả năng lãnh đạo và thuyết phục (E - Quản lý). Sự kết hợp này cho thấy bạn có thể phù hợp với các nghề liên quan đến giáo dục nghệ thuật, quản lý văn hóa, hoặc các lĩnh vực dịch vụ xã hội có tính sáng tạo và lãnh đạo.',
+                    strengths: 'Điểm mạnh của bạn bao gồm khả năng giao tiếp và làm việc với người khác, óc sáng tạo và khả năng biểu đạt, cùng với kỹ năng lãnh đạo và thuyết phục. Bạn thường có khả năng truyền cảm hứng cho người khác, linh hoạt trong cách tiếp cận, và có thể kết hợp giữa sự đồng cảm và quyết đoán.',
+                    careers: [
+                        'Giáo viên nghệ thuật', 'Nhà quản lý văn hóa', 'Nhà tổ chức sự kiện', 'Nhà trị liệu nghệ thuật',
+                        'Nhà hoạt động xã hội', 'Nhà tư vấn truyền thông', 'Giám đốc chương trình phi lợi nhuận', 'Nhà sản xuất truyền thông',
+                        'Nhà quản lý nghệ thuật', 'Nhà tư vấn phát triển cộng đồng', 'Nhà thiết kế chương trình giáo dục', 'Nhà báo'
+                    ]
+                },
+                'AIR': {
+                    title: 'Nghệ thuật - Nghiên cứu - Thực tế',
+                    description: 'Với mã Holland AIR, bạn có xu hướng thích các hoạt động sáng tạo và biểu đạt (A - Nghệ thuật), kết hợp với sự tò mò, phân tích và học hỏi (I - Nghiên cứu), cùng với khả năng thực hành và làm việc với đồ vật (R - Thực tế). Sự kết hợp này cho thấy bạn có thể phù hợp với các nghề liên quan đến thiết kế, nghiên cứu nghệ thuật, hoặc các lĩnh vực kỹ thuật có tính sáng tạo cao.',
+                    strengths: 'Điểm mạnh của bạn bao gồm óc sáng tạo và khả năng biểu đạt, tư duy phân tích và giải quyết vấn đề, cùng với kỹ năng thực hành và làm việc với đồ vật. Bạn thường có khả năng kết hợp giữa lý thuyết và thực hành, tư duy độc đáo, và có thể tạo ra những giải pháp sáng tạo cho các vấn đề thực tế.',
+                    careers: [
+                        'Kiến trúc sư', 'Nhà thiết kế sản phẩm', 'Nhà thiết kế đồ họa', 'Nhà nghiên cứu nghệ thuật',
+                        'Nhà khảo cổ học', 'Nhà thiết kế thời trang', 'Nhà làm phim', 'Nhà nhiếp ảnh',
+                        'Nhà thiết kế nội thất', 'Nhà bảo tồn nghệ thuật', 'Nhà chế tạo nhạc cụ', 'Nhà thiết kế trò chơi'
+                    ]
+                },
+                // Thêm các mã Holland khác ở đây
+            };
+            
+            // Holland type icons and colors
+            const hollandIcons = {
+                realistic: { icon: 'fas fa-tools', color: '#E9573F' },
+                investigative: { icon: 'fas fa-microscope', color: '#967ADC' },
+                artistic: { icon: 'fas fa-paint-brush', color: '#D770AD' },
+                social: { icon: 'fas fa-hands-helping', color: '#4A89DC' },
+                enterprising: { icon: 'fas fa-bullhorn', color: '#F6BB42' },
+                conventional: { icon: 'fas fa-calculator', color: '#37BC9B' }
+            };
+            
+            // Get result from localStorage
+            const hollandResult = JSON.parse(localStorage.getItem('hollandResult')) || {
+                scores: {
+                    realistic: 3,
+                    investigative: 7,
+                    artistic: 6,
+                    social: 8,
+                    enterprising: 4,
+                    conventional: 2
+                },
+                percentages: {
+                    realistic: 30,
+                    investigative: 70,
+                    artistic: 60,
+                    social: 80,
+                    enterprising: 40,
+                    conventional: 20
+                },
+                topCodes: ['social', 'investigative', 'artistic'],
+                hollandCode: 'SIA'
+            };
+            
+            // Update UI with result
+            const hollandCode = document.getElementById('holland-code');
+            const hollandCodeTitle = document.getElementById('holland-code-title');
+            const hollandCodeText = document.getElementById('holland-code-text');
+            const codeDescription = document.getElementById('code-description');
+            const codeStrengths = document.getElementById('code-strengths');
+            const careerGrid = document.getElementById('career-grid');
+            
+            // Update Holland Code
+            hollandCode.textContent = hollandResult.hollandCode;
+            hollandCodeText.textContent = hollandResult.hollandCode;
+            
+            // Update title and descriptions
+            if (hollandData[hollandResult.hollandCode]) {
+                hollandCodeTitle.textContent = hollandData[hollandResult.hollandCode].title;
+                codeDescription.textContent = hollandData[hollandResult.hollandCode].description;
+                codeStrengths.textContent = hollandData[hollandResult.hollandCode].strengths;
+                
+                // Update careers
+                careerGrid.innerHTML = '';
+                hollandData[hollandResult.hollandCode].careers.forEach(career => {
+                    const div = document.createElement('div');
+                    div.className = 'career-item';
+                    div.textContent = career;
+                    careerGrid.appendChild(div);
+                });
+            } else {
+                // Generate generic title if code not found
+                const codeNames = {
+                    'R': 'Thực tế',
+                    'I': 'Nghiên cứu',
+                    'A': 'Nghệ thuật',
+                    'S': 'Xã hội',
+                    'E': 'Quản lý',
+                    'C': 'Tổ chức'
+                };
+                
+                const titleParts = [];
+                for (let i = 0; i < hollandResult.hollandCode.length; i++) {
+                    const letter = hollandResult.hollandCode[i];
+                    if (codeNames[letter]) {
+                        titleParts.push(codeNames[letter]);
+                    }
+                }
+                
+                hollandCodeTitle.textContent = titleParts.join(' - ');
+                
+                // Generate generic careers based on top codes
+                generateGenericCareers(hollandResult.topCodes);
+            }
+            
+            // Update score bars
+            updateScoreBar('realistic', hollandResult.percentages.realistic);
+            updateScoreBar('investigative', hollandResult.percentages.investigative);
+            updateScoreBar('artistic', hollandResult.percentages.artistic);
+            updateScoreBar('social', hollandResult.percentages.social);
+            updateScoreBar('enterprising', hollandResult.percentages.enterprising);
+            updateScoreBar('conventional', hollandResult.percentages.conventional);
+            
+            // Save result button
+            const saveResultBtn = document.getElementById('save-result');
+            saveResultBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (auth.isLoggedIn()) {
+                    // In a real implementation, this would save to a database
+                    utils.showNotification('Kết quả đã được lưu thành công!');
+                } else {
+                    if (confirm('Bạn cần đăng nhập để lưu kết quả. Bạn có muốn đăng nhập ngay bây giờ không?')) {
+                        window.location.href = '../login.html';
+                    }
+                }
+            });
+            
+            // Helper function to update score bar
+            function updateScoreBar(type, percentage) {
+                const scoreElement = document.getElementById(`${type}-score`);
+                const fillElement = document.getElementById(`${type}-fill`);
+                
+                scoreElement.textContent = `${percentage}%`;
+                fillElement.style.width = `${percentage}%`;
+                
+                // Update color based on Holland type
+                if (hollandIcons[type]) {
+                    fillElement.style.backgroundColor = hollandIcons[type].color;
+                }
+            }
+            
+            // Generate generic careers based on top codes
+            function generateGenericCareers(topCodes) {
+                const careersByType = {
+                    realistic: [
+                        'Kỹ sư cơ khí', 'Thợ điện', 'Nông dân', 'Thợ mộc', 'Phi công',
+                        'Kỹ thuật viên ô tô', 'Nhà xây dựng', 'Kỹ sư xây dựng', 'Lâm nghiệp', 'Kỹ thuật viên điện tử'
+                    ],
+                    investigative: [
+                        'Nhà khoa học', 'Bác sĩ', 'Nhà nghiên cứu', 'Nhà toán học', 'Nhà vật lý học',
+                        'Nhà hóa học', 'Nhà sinh vật học', 'Nhà khoa học máy tính', 'Nhà kinh tế học', 'Nhà địa chất học'
+                    ],
+                    artistic: [
+                        'Nhạc sĩ', 'Họa sĩ', 'Nhà văn', 'Diễn viên', 'Nhà thiết kế',
+                        'Nhiếp ảnh gia', 'Nhà thiết kế thời trang', 'Kiến trúc sư', 'Nhà biên kịch', 'Nhà làm phim'
+                    ],
+                    social: [
+                        'Giáo viên', 'Nhà tâm lý học', 'Nhân viên xã hội', 'Nhà tư vấn', 'Y tá',
+                        'Nhà trị liệu', 'Nhà tư vấn hướng nghiệp', 'Nhà hoạt động xã hội', 'Nhà tư vấn giáo dục', 'Nhà tư vấn gia đình'
+                    ],
+                    enterprising: [
+                        'Nhà quản lý', 'Doanh nhân', 'Nhân viên bán hàng', 'Nhà tiếp thị', 'Luật sư',
+                        'Nhà môi giới bất động sản', 'Nhà quản lý nhân sự', 'Nhà quản lý dự án', 'Nhà quản lý tài chính', 'Nhà quản lý bán hàng'
+                    ],
+                    conventional: [
+                        'Kế toán viên', 'Nhân viên ngân hàng', 'Thư ký', 'Nhân viên hành chính', 'Nhân viên kế toán',
+                        'Nhân viên thuế', 'Nhân viên kiểm toán', 'Nhân viên văn phòng', 'Nhân viên lưu trữ', 'Nhân viên thống kê'
+                    ]
+                };
+                
+                // Get careers from top 3 codes
+                const careers = [];
+                topCodes.forEach(code => {
+                    if (careersByType[code]) {
+                        careers.push(...careersByType[code].slice(0, 4)); // Get top 4 careers from each type
+                    }
+                });
+                
+                // Update career grid
+                careerGrid.innerHTML = '';
+                careers.slice(0, 12).forEach(career => { // Limit to 12 careers
+                    const div = document.createElement('div');
+                    div.className = 'career-item';
+                    div.textContent = career;
+                    careerGrid.appendChild(div);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

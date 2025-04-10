@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngành Nghề - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .careers-page-header {
+            background-color: #f0f4ff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .careers-page-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .careers-page-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .careers-search-section {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+        }
+        
+        .search-btn {
+            padding: 0 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-btn:hover {
+            background-color: #3a5bc7;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-tag {
+            padding: 8px 15px;
+            background-color: #f0f4ff;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-tag:hover, .filter-tag.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .careers-grid {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .careers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .career-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .career-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .career-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .career-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .career-card:hover .career-image img {
+            transform: scale(1.1);
+        }
+        
+        .career-content {
+            padding: 20px;
+        }
+        
+        .career-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .career-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .career-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .career-category {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            background-color: rgba(74, 107, 223, 0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        
+        .career-salary {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .career-link {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .career-link:hover {
+            background-color: #3a5bc7;
+            color: white;
+        }
+        
+        .load-more {
+            display: block;
+            width: 200px;
+            margin: 40px auto 0;
+            padding: 12px;
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .load-more:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .career-categories {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-icon i {
+            font-size: 30px;
+            color: var(--primary-color);
+        }
+        
+        .category-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .category-count {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .category-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .category-link i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hướng Nghiệp Tương Lai</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tests.html">Bài kiểm tra</a></li>
+                    <li><a href="careers.html" class="active">Ngành nghề</a></li>
+                    <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="progress.html">Theo dõi tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login">Đăng nhập</a>
+                <a href="register.html" class="btn btn-register">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="careers-page-header">
+        <div class="container">
+            <h2>Khám phá ngành nghề phù hợp với bạn</h2>
+            <p>Tìm hiểu về các ngành nghề khác nhau, yêu cầu kỹ năng, triển vọng nghề nghiệp và mức lương tham khảo.</p>
+        </div>
+    </section>
+
+    <section class="careers-search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Tìm kiếm ngành nghề...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-tag active">Tất cả</div>
+                    <div class="filter-tag">Công nghệ thông tin</div>
+                    <div class="filter-tag">Y tế</div>
+                    <div class="filter-tag">Giáo dục</div>
+                    <div class="filter-tag">Kinh doanh</div>
+                    <div class="filter-tag">Kỹ thuật</div>
+                    <div class="filter-tag">Nghệ thuật</div>
+                    <div class="filter-tag">Khoa học</div>
+                    <div class="filter-tag">Luật</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="careers-grid">
+        <div class="container">
+            <div class="careers-container">
+                <div class="career-card">
+                    <div class="career-image">
+                        <img src="images/career-software-developer.jpg" alt="Lập trình viên">
+                    </div>
+                    <div class="career-content">
+                        <h3 class="career-title">Lập trình viên</h3>
+                        <p class="career-description">Phát triển, tạo và sửa đổi phần mềm máy tính. Phân tích nhu cầu người dùng và phát triển giải pháp phần mềm.</p>
+                        <div class="career-meta">
+                            <span class="career-category">Công nghệ thông tin</span>
+                            <span class="career-salary">15-40 triệu/tháng</span>
+                        </div>
+                    </div>
+                    <a href="careers/software-developer.html" class="career-link">Xem chi tiết</a>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-image">
+                        <img src="images/career-doctor.jpg" alt="Bác sĩ">
+                    </div>
+                    <div class="career-content">
+                        <h3 class="career-title">Bác sĩ</h3>
+                        <p class="career-description">Chẩn đoán và điều trị bệnh, thương tích và các tình trạng sức khỏe khác. Tư vấn cho bệnh nhân về sức khỏe và phòng ngừa bệnh tật.</p>
+                        <div class="career-meta">
+                            <span class="career-category">Y tế</span>
+                            <span class="career-salary">20-60 triệu/tháng</span>
+                        </div>
+                    </div>
+                    <a href="careers/doctor.html" class="career-link">Xem chi tiết</a>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-image">
+                        <img src="images/career-teacher.jpg" alt="Giáo viên">
+                    </div>
+                    <div class="career-content">
+                        <h3 class="career-title">Giáo viên</h3>
+                        <p class="career-description">Giảng dạy học sinh các môn học và kỹ năng khác nhau. Chuẩn bị bài giảng, đánh giá tiến bộ của học sinh và duy trì kỷ luật lớp học.</p>
+                        <div class="career-meta">
+                            <span class="career-category">Giáo dục</span>
+                            <span class="career-salary">8-25 triệu/tháng</span>
+                        </div>
+                    </div>
+                    <a href="careers/teacher.html" class="career-link">Xem chi tiết</a>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-image">
+                        <img src="images/career-marketing.jpg" alt="Chuyên viên marketing">
+                    </div>
+                    <div class="career-content">
+                        <h3 class="career-title">Chuyên viên marketing</h3>
+                        <p class="career-description">Phát triển và thực hiện chiến lược tiếp thị để quảng bá sản phẩm hoặc dịch vụ. Phân tích dữ liệu thị trường và xu hướng tiêu dùng.</p>
+                        <div class="career-meta">
+                            <span class="career-category">Kinh doanh</span>
+                            <span class="career-salary">10-30 triệu/tháng</span>
+                        </div>
+                    </div>
+                    <a href="careers/marketing-specialist.html" class="career-link">Xem chi tiết</a>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-image">
+                        <img src="images/career-engineer.jpg" alt="Kỹ sư xây dựng">
+                    </div>
+                    <div class="career-content">
+                        <h3 class="career-title">Kỹ sư xây dựng</h3>
+                        <p class="career-description">Thiết kế, phát triển và giám sát các dự án xây dựng. Đảm bảo các công trình đáp ứng các tiêu chuẩn an toàn và quy định xây dựng.</p>
+                        <div class="career-meta">
+                            <span class="career-category">Kỹ thuật</span>
+                            <span class="career-salary">15-35 triệu/tháng</span>
+                        </div>
+                    </div>
+                    <a href="careers/civil-engineer.html" class="career-link">Xem chi tiết</a>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-image">
+                        <img src="images/career-graphic-designer.jpg" alt="Nhà thiết kế đồ họa">
+                    </div>
+                    <div class="career-content">
+                        <h3 class="career-title">Nhà thiết kế đồ họa</h3>
+                        <p class="career-description">Tạo ra các hình ảnh trực quan để truyền đạt thông điệp. Thiết kế logo, trang web, ấn phẩm quảng cáo và các tài liệu tiếp thị khác.</p>
+                        <div class="career-meta">
+                            <span class="career-category">Nghệ thuật</span>
+                            <span class="career-salary">10-25 triệu/tháng</span>
+                        </div>
+                    </div>
+                    <a href="careers/graphic-designer.html" class="career-link">Xem chi tiết</a>
+                </div>
+            </div>
+            <button class="load-more">Xem thêm</button>
+        </div>
+    </section>
+
+    <section class="career-categories">
+        <div class="container">
+            <h2 class="section-title">Khám phá theo lĩnh vực</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="category-title">Công nghệ thông tin</h3>
+                    <p class="category-count">25+ ngành nghề</p>
+                    <a href="categories/it.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="category-title">Y tế</h3>
+                    <p class="category-count">30+ ngành nghề</p>
+                    <a href="categories/healthcare.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="category-title">Giáo dục</h3>
+                    <p class="category-count">15+ ngành nghề</p>
+                    <a href="categories/education.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="category-title">Kinh doanh</h3>
+                    <p class="category-count">20+ ngành nghề</p>
+                    <a href="categories/business.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="category-title">Kỹ thuật</h3>
+                    <p class="category-count">18+ ngành nghề</p>
+                    <a href="categories/engineering.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="category-title">Nghệ thuật</h3>
+                    <p class="category-count">12+ ngành nghề</p>
+                    <a href="categories/arts.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="category-title">Khoa học</h3>
+                    <p class="category-count">22+ ngành nghề</p>
+                    <a href="categories/science.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="category-title">Luật</h3>
+                    <p class="category-count">10+ ngành nghề</p>
+                    <a href="categories/law.html" class="category-link">Khám phá <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hướng Nghiệp Tương Lai</h3>
+                    <p>Đồng hành cùng học sinh trên con đường khám phá nghề nghiệp</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="tests.html">Bài kiểm tra</a></li>
+                        <li><a href="careers.html">Ngành nghề</a></li>
+                        <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin mới nhất về hướng nghiệp và giáo dục</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn btn-newsletter">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter tags functionality
+            const filterTags = document.querySelectorAll('.filter-tag');
+            
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    // Remove active class from all tags
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tag
+                    tag.classList.add('active');
+                    
+                    // Filter logic would go here in a real implementation
+                    const category = tag.textContent;
+                    console.log(`Filtering by: ${category}`);
+                    
+                    // Show notification for demo purposes
+                    if (category !== 'Tất cả') {
+                        utils.showNotification(`Đang lọc theo ngành: ${category}`);
+                    } else {
+                        utils.showNotification('Hiển thị tất cả ngành nghề');
+                    }
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            searchBtn.addEventListener('click', () => {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    console.log(`Searching for: ${searchTerm}`);
+                    utils.showNotification(`Đang tìm kiếm: ${searchTerm}`);
+                } else {
+                    utils.showNotification('Vui lòng nhập từ khóa tìm kiếm', 'info');
+                }
+            });
+            
+            // Enter key for search
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    searchBtn.click();
+                }
+            });
+            
+            // Load more button
+            const loadMoreBtn = document.querySelector('.load-more');
+            
+            loadMoreBtn.addEventListener('click', () => {
+                utils.showNotification('Đang tải thêm ngành nghề...', 'info');
+                
+                // In a real implementation, this would load more careers
+                // For demo purposes, we'll just show a message
+                setTimeout(() => {
+                    utils.showNotification('Chức năng này sẽ được triển khai trong phiên bản tiếp theo');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

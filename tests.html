@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra - Hướng Nghiệp Tương Lai</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .tests-page-header {
+            background-color: #f0f4ff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .tests-page-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .tests-page-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .tests-container {
+            padding: 80px 0;
+        }
+        
+        .test-card-large {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .test-card-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-card-content {
+            padding: 30px;
+        }
+        
+        .test-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .test-icon-large {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .mbti-icon-large {
+            background-color: rgba(74, 107, 223, 0.1);
+        }
+        
+        .big-five-icon-large {
+            background-color: rgba(108, 99, 255, 0.1);
+        }
+        
+        .holland-icon-large {
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .test-icon-large i {
+            font-size: 28px;
+        }
+        
+        .mbti-icon-large i {
+            color: var(--mbti-color);
+        }
+        
+        .big-five-icon-large i {
+            color: var(--big-five-color);
+        }
+        
+        .holland-icon-large i {
+            color: var(--holland-color);
+        }
+        
+        .test-title h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .test-title p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .test-description {
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+        
+        .test-info {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .test-info-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .test-info-item i {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+        
+        .test-info-item span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .test-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .test-actions .btn-test-large {
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .test-actions .btn-test-large:hover {
+            background-color: #3a5bc7;
+        }
+        
+        .test-actions .learn-more {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .test-actions .learn-more i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .faq-question i {
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hướng Nghiệp Tương Lai</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tests.html" class="active">Bài kiểm tra</a></li>
+                    <li><a href="careers.html">Ngành nghề</a></li>
+                    <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                    <li><a href="progress.html">Theo dõi tiến độ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login">Đăng nhập</a>
+                <a href="register.html" class="btn btn-register">Đăng ký</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="tests-page-header">
+        <div class="container">
+            <h2>Khám phá bản thân qua các bài kiểm tra tính cách</h2>
+            <p>Các bài kiểm tra tâm lý được thiết kế chuyên nghiệp giúp bạn hiểu rõ hơn về tính cách, sở thích và điểm mạnh của bản thân.</p>
+        </div>
+    </section>
+
+    <section class="tests-container">
+        <div class="container">
+            <div class="test-card-large mbti-card">
+                <div class="test-card-content">
+                    <div class="test-card-header">
+                        <div class="test-icon-large mbti-icon-large">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="test-title">
+                            <h3>Myers-Briggs Type Indicator (MBTI)</h3>
+                            <p>Khám phá 16 loại tính cách khác nhau</p>
+                        </div>
+                    </div>
+                    <div class="test-description">
+                        <p>Bài kiểm tra MBTI giúp xác định 16 loại tính cách khác nhau dựa trên cách bạn nhận thức thế giới và đưa ra quyết định. Kết quả sẽ cho bạn biết bạn thuộc nhóm tính cách nào trong số 16 nhóm, từ đó giúp bạn hiểu rõ hơn về điểm mạnh, điểm yếu và cách bạn tương tác với người khác.</p>
+                    </div>
+                    <div class="test-info">
+                        <div class="test-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Thời gian: 15-20 phút</span>
+                        </div>
+                        <div class="test-info-item">
+                            <i class="fas fa-list-ol"></i>
+                            <span>Số câu hỏi: 70 câu</span>
+                        </div>
+                        <div class="test-info-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Kết quả chi tiết</span>
+                        </div>
+                    </div>
+                    <div class="test-actions">
+                        <a href="tests/mbti.html" class="btn-test-large">Bắt đầu làm bài</a>
+                        <a href="tests/mbti-info.html" class="learn-more">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-card-large big-five-card">
+                <div class="test-card-content">
+                    <div class="test-card-header">
+                        <div class="test-icon-large big-five-icon-large">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="test-title">
+                            <h3>Big Five Personality Test</h3>
+                            <p>Đánh giá năm đặc điểm tính cách chính</p>
+                        </div>
+                    </div>
+                    <div class="test-description">
+                        <p>Mô hình Big Five đánh giá năm đặc điểm tính cách chính: sự cởi mở (Openness), tận tâm (Conscientiousness), hướng ngoại (Extraversion), dễ chịu (Agreeableness) và sự ổn định cảm xúc (Neuroticism). Bài kiểm tra này giúp bạn hiểu rõ hơn về cách bạn tương tác với thế giới xung quanh và phong cách làm việc của bạn.</p>
+                    </div>
+                    <div class="test-info">
+                        <div class="test-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Thời gian: 10-15 phút</span>
+                        </div>
+                        <div class="test-info-item">
+                            <i class="fas fa-list-ol"></i>
+                            <span>Số câu hỏi: 50 câu</span>
+                        </div>
+                        <div class="test-info-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Kết quả chi tiết</span>
+                        </div>
+                    </div>
+                    <div class="test-actions">
+                        <a href="tests/big-five.html" class="btn-test-large">Bắt đầu làm bài</a>
+                        <a href="tests/big-five-info.html" class="learn-more">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-card-large holland-card">
+                <div class="test-card-content">
+                    <div class="test-card-header">
+                        <div class="test-icon-large holland-icon-large">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <div class="test-title">
+                            <h3>Holland Codes (RIASEC)</h3>
+                            <p>Khám phá sở thích nghề nghiệp của bạn</p>
+                        </div>
+                    </div>
+                    <div class="test-description">
+                        <p>Lý thuyết Holland Codes phân loại sở thích nghề nghiệp thành sáu loại: Realistic (Thực tế), Investigative (Nghiên cứu), Artistic (Nghệ thuật), Social (Xã hội), Enterprising (Kinh doanh) và Conventional (Quy ước). Bài kiểm tra này giúp bạn xác định loại công việc phù hợp nhất với sở thích và giá trị của bạn.</p>
+                    </div>
+                    <div class="test-info">
+                        <div class="test-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Thời gian: 15-20 phút</span>
+                        </div>
+                        <div class="test-info-item">
+                            <i class="fas fa-list-ol"></i>
+                            <span>Số câu hỏi: 60 câu</span>
+                        </div>
+                        <div class="test-info-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Kết quả chi tiết</span>
+                        </div>
+                    </div>
+                    <div class="test-actions">
+                        <a href="tests/holland.html" class="btn-test-large">Bắt đầu làm bài</a>
+                        <a href="tests/holland-info.html" class="learn-more">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Câu hỏi thường gặp</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Các bài kiểm tra có chính xác không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Các bài kiểm tra tính cách được thiết kế dựa trên các mô hình tâm lý học được nghiên cứu và công nhận rộng rãi. Tuy nhiên, kết quả chỉ mang tính tham khảo và không nên được coi là tuyệt đối. Mỗi người đều có tính cách phức tạp và đa chiều, không thể hoàn toàn được xác định bởi một bài kiểm tra.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Tôi có thể làm lại bài kiểm tra không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Có, bạn có thể làm lại bài kiểm tra bất cứ lúc nào. Tuy nhiên, chúng tôi khuyên bạn nên đợi ít nhất vài tuần giữa các lần làm bài để có kết quả chính xác hơn. Tính cách có thể thay đổi theo thời gian, vì vậy việc làm lại bài kiểm tra sau một thời gian dài có thể cho thấy sự phát triển của bạn.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Làm thế nào để tôi sử dụng kết quả bài kiểm tra?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kết quả bài kiểm tra có thể giúp bạn hiểu rõ hơn về bản thân, từ đó đưa ra quyết định sáng suốt về nghề nghiệp và học tập. Sau khi nhận kết quả, bạn sẽ được gợi ý các ngành nghề phù hợp với tính cách và sở thích của mình. Bạn cũng có thể sử dụng kết quả để xây dựng kế hoạch học tập phù hợp với mục tiêu nghề nghiệp.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Tôi có cần đăng ký tài khoản để làm bài kiểm tra không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bạn có thể làm bài kiểm tra mà không cần đăng ký tài khoản. Tuy nhiên, việc đăng ký tài khoản sẽ giúp bạn lưu lại kết quả bài kiểm tra, theo dõi sự tiến bộ của mình và nhận được kế hoạch học tập cá nhân hóa. Chúng tôi khuyên bạn nên đăng ký tài khoản để có trải nghiệm đầy đủ nhất.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Các bài kiểm tra có mất phí không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tất cả các bài kiểm tra trên trang web của chúng tôi đều hoàn toàn miễn phí. Chúng tôi tin rằng mọi học sinh đều nên có cơ hội khám phá bản thân và tìm hiểu về nghề nghiệp phù hợp mà không gặp rào cản về tài chính.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hướng Nghiệp Tương Lai</h3>
+                    <p>Đồng hành cùng học sinh trên con đường khám phá nghề nghiệp</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="tests.html">Bài kiểm tra</a></li>
+                        <li><a href="careers.html">Ngành nghề</a></li>
+                        <li><a href="learning-path.html">Kế hoạch học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin mới nhất về hướng nghiệp và giáo dục</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn btn-newsletter">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hướng Nghiệp Tương Lai. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

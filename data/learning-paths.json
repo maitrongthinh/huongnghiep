@@ -1,0 +1,839 @@
+{
+  "learning_paths": [
+    {
+      "career_id": 1,
+      "career_title": "Kỹ sư phần mềm",
+      "paths": [
+        {
+          "path_id": 1,
+          "title": "Lộ trình học Kỹ sư phần mềm - Đại học",
+          "description": "Lộ trình học tập chính quy thông qua hệ thống đại học",
+          "duration": "4-5 năm",
+          "steps": [
+            {
+              "step_id": 1,
+              "title": "Chuẩn bị trước đại học",
+              "description": "Các môn học và kỹ năng cần chuẩn bị trước khi vào đại học",
+              "duration": "1-2 năm",
+              "activities": [
+                "Học tốt Toán, Vật lý, Tiếng Anh ở cấp THPT",
+                "Tham gia các cuộc thi Tin học, Toán học",
+                "Tự học lập trình cơ bản (Python, HTML/CSS)",
+                "Tham gia các khóa học trực tuyến về lập trình",
+                "Đọc sách về khoa học máy tính và công nghệ"
+              ],
+              "resources": [
+                {
+                  "title": "Khóa học Python cơ bản",
+                  "type": "online_course",
+                  "url": "https://www.coursera.org/learn/python"
+                },
+                {
+                  "title": "W3Schools - HTML, CSS, JavaScript",
+                  "type": "website",
+                  "url": "https://www.w3schools.com/"
+                },
+                {
+                  "title": "Sách: Nhập môn lập trình",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                }
+              ]
+            },
+            {
+              "step_id": 2,
+              "title": "Năm 1-2 Đại học",
+              "description": "Các môn học cơ bản và nền tảng",
+              "duration": "2 năm",
+              "activities": [
+                "Học các môn cơ bản: Toán cao cấp, Đại số tuyến tính, Xác suất thống kê",
+                "Học các môn chuyên ngành cơ sở: Nhập môn lập trình, Cấu trúc dữ liệu và giải thuật",
+                "Tham gia câu lạc bộ lập trình, công nghệ",
+                "Làm các dự án nhỏ để áp dụng kiến thức",
+                "Học tiếng Anh chuyên ngành"
+              ],
+              "resources": [
+                {
+                  "title": "Sách: Cấu trúc dữ liệu và giải thuật",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                },
+                {
+                  "title": "GitHub Student Developer Pack",
+                  "type": "tool",
+                  "url": "https://education.github.com/pack"
+                }
+              ]
+            },
+            {
+              "step_id": 3,
+              "title": "Năm 3-4 Đại học",
+              "description": "Các môn học chuyên sâu và thực tập",
+              "duration": "2 năm",
+              "activities": [
+                "Học các môn chuyên ngành: Công nghệ phần mềm, Cơ sở dữ liệu, Mạng máy tính, Trí tuệ nhân tạo",
+                "Chọn hướng chuyên sâu: Phát triển web, Mobile, AI, DevOps, v.v.",
+                "Thực tập tại công ty phần mềm",
+                "Làm đồ án tốt nghiệp",
+                "Tham gia các hackathon, cuộc thi lập trình"
+              ],
+              "resources": [
+                {
+                  "title": "Khóa học Công nghệ phần mềm",
+                  "type": "online_course",
+                  "url": "https://www.edx.org/course/software-engineering"
+                },
+                {
+                  "title": "Thực tập tại các công ty công nghệ",
+                  "type": "internship",
+                  "url": "https://example.com/internship"
+                }
+              ]
+            },
+            {
+              "step_id": 4,
+              "title": "Sau đại học",
+              "description": "Phát triển chuyên môn và sự nghiệp",
+              "duration": "Liên tục",
+              "activities": [
+                "Tìm việc làm tại các công ty phần mềm",
+                "Học các công nghệ mới thông qua khóa học online",
+                "Tham gia các cộng đồng lập trình, diễn đàn",
+                "Đóng góp cho các dự án mã nguồn mở",
+                "Cân nhắc học cao học nếu muốn nghiên cứu chuyên sâu"
+              ],
+              "resources": [
+                {
+                  "title": "LinkedIn Learning",
+                  "type": "online_course",
+                  "url": "https://www.linkedin.com/learning/"
+                },
+                {
+                  "title": "Stack Overflow",
+                  "type": "community",
+                  "url": "https://stackoverflow.com/"
+                },
+                {
+                  "title": "GitHub",
+                  "type": "tool",
+                  "url": "https://github.com/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path_id": 2,
+          "title": "Lộ trình học Kỹ sư phần mềm - Tự học",
+          "description": "Lộ trình tự học để trở thành kỹ sư phần mềm mà không cần bằng đại học",
+          "duration": "2-3 năm",
+          "steps": [
+            {
+              "step_id": 1,
+              "title": "Nền tảng cơ bản",
+              "description": "Xây dựng nền tảng kiến thức cơ bản về lập trình",
+              "duration": "6 tháng",
+              "activities": [
+                "Học ngôn ngữ lập trình đầu tiên (Python hoặc JavaScript)",
+                "Học HTML, CSS cơ bản",
+                "Học cấu trúc dữ liệu và giải thuật cơ bản",
+                "Làm các dự án nhỏ để thực hành",
+                "Học tiếng Anh chuyên ngành"
+              ],
+              "resources": [
+                {
+                  "title": "freeCodeCamp",
+                  "type": "online_course",
+                  "url": "https://www.freecodecamp.org/"
+                },
+                {
+                  "title": "The Odin Project",
+                  "type": "online_course",
+                  "url": "https://www.theodinproject.com/"
+                },
+                {
+                  "title": "Codecademy",
+                  "type": "online_course",
+                  "url": "https://www.codecademy.com/"
+                }
+              ]
+            },
+            {
+              "step_id": 2,
+              "title": "Chuyên môn hóa",
+              "description": "Chọn một hướng chuyên môn và đi sâu vào đó",
+              "duration": "1 năm",
+              "activities": [
+                "Chọn một hướng: Front-end, Back-end, Mobile, DevOps, v.v.",
+                "Học các công nghệ liên quan đến hướng đã chọn",
+                "Xây dựng portfolio với các dự án cá nhân",
+                "Tham gia các cộng đồng lập trình",
+                "Học về quy trình phát triển phần mềm"
+              ],
+              "resources": [
+                {
+                  "title": "Roadmap.sh",
+                  "type": "guide",
+                  "url": "https://roadmap.sh/"
+                },
+                {
+                  "title": "Udemy",
+                  "type": "online_course",
+                  "url": "https://www.udemy.com/"
+                },
+                {
+                  "title": "GitHub",
+                  "type": "tool",
+                  "url": "https://github.com/"
+                }
+              ]
+            },
+            {
+              "step_id": 3,
+              "title": "Thực tế và kinh nghiệm",
+              "description": "Tích lũy kinh nghiệm thực tế",
+              "duration": "6-12 tháng",
+              "activities": [
+                "Làm freelancer cho các dự án nhỏ",
+                "Tham gia các dự án mã nguồn mở",
+                "Tìm kiếm thực tập hoặc vị trí entry-level",
+                "Xây dựng mạng lưới quan hệ trong ngành",
+                "Chuẩn bị CV và portfolio"
+              ],
+              "resources": [
+                {
+                  "title": "Upwork",
+                  "type": "platform",
+                  "url": "https://www.upwork.com/"
+                },
+                {
+                  "title": "Fiverr",
+                  "type": "platform",
+                  "url": "https://www.fiverr.com/"
+                },
+                {
+                  "title": "LinkedIn",
+                  "type": "network",
+                  "url": "https://www.linkedin.com/"
+                }
+              ]
+            },
+            {
+              "step_id": 4,
+              "title": "Phát triển liên tục",
+              "description": "Không ngừng học hỏi và phát triển",
+              "duration": "Liên tục",
+              "activities": [
+                "Học các công nghệ mới",
+                "Tham gia các hội thảo, meetup",
+                "Đọc sách, blog về công nghệ",
+                "Cân nhắc các chứng chỉ chuyên môn",
+                "Chia sẻ kiến thức thông qua blog, video"
+              ],
+              "resources": [
+                {
+                  "title": "Medium",
+                  "type": "blog",
+                  "url": "https://medium.com/"
+                },
+                {
+                  "title": "Dev.to",
+                  "type": "community",
+                  "url": "https://dev.to/"
+                },
+                {
+                  "title": "Meetup",
+                  "type": "network",
+                  "url": "https://www.meetup.com/"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "career_id": 4,
+      "career_title": "Giáo viên",
+      "paths": [
+        {
+          "path_id": 3,
+          "title": "Lộ trình học Giáo viên - Đại học Sư phạm",
+          "description": "Lộ trình học tập chính quy thông qua hệ thống đại học sư phạm",
+          "duration": "4 năm",
+          "steps": [
+            {
+              "step_id": 1,
+              "title": "Chuẩn bị trước đại học",
+              "description": "Các môn học và kỹ năng cần chuẩn bị trước khi vào đại học sư phạm",
+              "duration": "1-2 năm",
+              "activities": [
+                "Học tốt các môn văn hóa ở cấp THPT",
+                "Tập trung vào môn học mà bạn muốn giảng dạy trong tương lai",
+                "Tham gia các hoạt động giáo dục, tình nguyện",
+                "Phát triển kỹ năng giao tiếp và thuyết trình",
+                "Tìm hiểu về ngành sư phạm và các trường đào tạo"
+              ],
+              "resources": [
+                {
+                  "title": "Trang web Bộ Giáo dục và Đào tạo",
+                  "type": "website",
+                  "url": "https://moet.gov.vn/"
+                },
+                {
+                  "title": "Sách: Phương pháp giảng dạy hiện đại",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                }
+              ]
+            },
+            {
+              "step_id": 2,
+              "title": "Năm 1-2 Đại học",
+              "description": "Các môn học cơ bản và nền tảng sư phạm",
+              "duration": "2 năm",
+              "activities": [
+                "Học các môn đại cương: Tâm lý học, Giáo dục học",
+                "Học các môn chuyên ngành cơ sở theo môn học sẽ giảng dạy",
+                "Tham gia câu lạc bộ sư phạm, hoạt động ngoại khóa",
+                "Quan sát các giáo viên giỏi giảng dạy",
+                "Phát triển kỹ năng sư phạm cơ bản"
+              ],
+              "resources": [
+                {
+                  "title": "Sách: Tâm lý học lứa tuổi và tâm lý học sư phạm",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                },
+                {
+                  "title": "Khóa học: Phương pháp giảng dạy hiệu quả",
+                  "type": "online_course",
+                  "url": "https://example.com/course"
+                }
+              ]
+            },
+            {
+              "step_id": 3,
+              "title": "Năm 3-4 Đại học",
+              "description": "Các môn học chuyên sâu và thực tập sư phạm",
+              "duration": "2 năm",
+              "activities": [
+                "Học các môn chuyên ngành sâu",
+                "Học phương pháp giảng dạy chuyên biệt",
+                "Thực tập sư phạm tại các trường học",
+                "Làm khóa luận tốt nghiệp",
+                "Chuẩn bị hồ sơ xin việc"
+              ],
+              "resources": [
+                {
+                  "title": "Sách: Đổi mới phương pháp dạy học",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                },
+                {
+                  "title": "Hội thảo về giáo dục",
+                  "type": "event",
+                  "url": "https://example.com/event"
+                }
+              ]
+            },
+            {
+              "step_id": 4,
+              "title": "Sau đại học",
+              "description": "Phát triển chuyên môn và sự nghiệp",
+              "duration": "Liên tục",
+              "activities": [
+                "Tìm việc làm tại các trường học",
+                "Tham gia các khóa bồi dưỡng chuyên môn",
+                "Học cao học nếu muốn dạy ở bậc cao đẳng, đại học",
+                "Tham gia các hội thảo, diễn đàn giáo dục",
+                "Nghiên cứu và áp dụng phương pháp giảng dạy mới"
+              ],
+              "resources": [
+                {
+                  "title": "Cổng thông tin điện tử của Bộ Giáo dục và Đào tạo",
+                  "type": "website",
+                  "url": "https://moet.gov.vn/"
+                },
+                {
+                  "title": "Tạp chí Giáo dục",
+                  "type": "journal",
+                  "url": "https://example.com/journal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path_id": 4,
+          "title": "Lộ trình học Giáo viên - Chuyển ngành",
+          "description": "Lộ trình để trở thành giáo viên cho người đã có bằng đại học ngành khác",
+          "duration": "1-2 năm",
+          "steps": [
+            {
+              "step_id": 1,
+              "title": "Học chứng chỉ sư phạm",
+              "description": "Lấy chứng chỉ nghiệp vụ sư phạm",
+              "duration": "6-12 tháng",
+              "activities": [
+                "Đăng ký khóa học nghiệp vụ sư phạm",
+                "Học các môn Tâm lý học, Giáo dục học",
+                "Học phương pháp giảng dạy",
+                "Thực hành giảng dạy",
+                "Thi lấy chứng chỉ"
+              ],
+              "resources": [
+                {
+                  "title": "Các trường đại học sư phạm",
+                  "type": "institution",
+                  "url": "https://example.com/institution"
+                },
+                {
+                  "title": "Khóa học nghiệp vụ sư phạm online",
+                  "type": "online_course",
+                  "url": "https://example.com/course"
+                }
+              ]
+            },
+            {
+              "step_id": 2,
+              "title": "Tích lũy kinh nghiệm",
+              "description": "Tích lũy kinh nghiệm giảng dạy thực tế",
+              "duration": "6-12 tháng",
+              "activities": [
+                "Dạy kèm hoặc dạy tại các trung tâm",
+                "Tham gia các chương trình tình nguyện giáo dục",
+                "Quan sát và học hỏi từ các giáo viên có kinh nghiệm",
+                "Phát triển kỹ năng quản lý lớp học",
+                "Xây dựng portfolio giảng dạy"
+              ],
+              "resources": [
+                {
+                  "title": "Các trung tâm gia sư",
+                  "type": "institution",
+                  "url": "https://example.com/tutoring"
+                },
+                {
+                  "title": "Các tổ chức giáo dục phi lợi nhuận",
+                  "type": "organization",
+                  "url": "https://example.com/ngo"
+                }
+              ]
+            },
+            {
+              "step_id": 3,
+              "title": "Tìm việc làm chính thức",
+              "description": "Tìm kiếm vị trí giảng dạy chính thức",
+              "duration": "3-6 tháng",
+              "activities": [
+                "Chuẩn bị hồ sơ xin việc",
+                "Tìm kiếm cơ hội tại các trường công lập, tư thục",
+                "Chuẩn bị cho các bài giảng thử",
+                "Tham gia các kỳ thi tuyển giáo viên",
+                "Xây dựng mạng lưới quan hệ trong ngành giáo dục"
+              ],
+              "resources": [
+                {
+                  "title": "Cổng thông tin tuyển dụng giáo viên",
+                  "type": "website",
+                  "url": "https://example.com/recruitment"
+                },
+                {
+                  "title": "LinkedIn",
+                  "type": "network",
+                  "url": "https://www.linkedin.com/"
+                }
+              ]
+            },
+            {
+              "step_id": 4,
+              "title": "Phát triển chuyên môn",
+              "description": "Liên tục phát triển chuyên môn",
+              "duration": "Liên tục",
+              "activities": [
+                "Tham gia các khóa bồi dưỡng chuyên môn",
+                "Học cao học về giáo dục hoặc chuyên ngành",
+                "Nghiên cứu và áp dụng phương pháp giảng dạy mới",
+                "Tham gia các hội thảo, diễn đàn giáo dục",
+                "Chia sẻ kinh nghiệm với đồng nghiệp"
+              ],
+              "resources": [
+                {
+                  "title": "Coursera - Các khóa học về giáo dục",
+                  "type": "online_course",
+                  "url": "https://www.coursera.org/browse/social-sciences/education"
+                },
+                {
+                  "title": "EdX - Các khóa học về giáo dục",
+                  "type": "online_course",
+                  "url": "https://www.edx.org/learn/education"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "career_id": 9,
+      "career_title": "Nhà tâm lý học",
+      "paths": [
+        {
+          "path_id": 5,
+          "title": "Lộ trình học Tâm lý học - Đại học",
+          "description": "Lộ trình học tập chính quy thông qua hệ thống đại học",
+          "duration": "6-8 năm",
+          "steps": [
+            {
+              "step_id": 1,
+              "title": "Chuẩn bị trước đại học",
+              "description": "Các môn học và kỹ năng cần chuẩn bị trước khi vào đại học",
+              "duration": "1-2 năm",
+              "activities": [
+                "Học tốt các môn Sinh học, Hóa học, Văn học, Tiếng Anh",
+                "Đọc sách về tâm lý học cơ bản",
+                "Phát triển kỹ năng giao tiếp và lắng nghe",
+                "Tham gia các hoạt động tình nguyện, công tác xã hội",
+                "Tìm hiểu về ngành tâm lý học và các trường đào tạo"
+              ],
+              "resources": [
+                {
+                  "title": "Sách: Nhập môn Tâm lý học",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                },
+                {
+                  "title": "Các kênh YouTube về tâm lý học",
+                  "type": "video",
+                  "url": "https://www.youtube.com/results?search_query=psychology"
+                }
+              ]
+            },
+            {
+              "step_id": 2,
+              "title": "Cử nhân Tâm lý học",
+              "description": "Học chương trình cử nhân tâm lý học",
+              "duration": "4 năm",
+              "activities": [
+                "Học các môn cơ bản: Tâm lý học đại cương, Sinh lý học thần kinh",
+                "Học các môn chuyên ngành: Tâm lý học phát triển, Tâm lý học xã hội, Tâm bệnh học",
+                "Tham gia nghiên cứu tâm lý học",
+                "Thực tập tại các cơ sở tâm lý, tư vấn",
+                "Làm khóa luận tốt nghiệp"
+              ],
+              "resources": [
+                {
+                  "title": "Sách giáo trình tâm lý học",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                },
+                {
+                  "title": "Hiệp hội Tâm lý học Việt Nam",
+                  "type": "organization",
+                  "url": "https://example.com/organization"
+                }
+              ]
+            },
+            {
+              "step_id": 3,
+              "title": "Thạc sĩ Tâm lý học",
+              "description": "Học chương trình thạc sĩ tâm lý học",
+              "duration": "1-2 năm",
+              "activities": [
+                "Chọn chuyên ngành: Tâm lý học lâm sàng, Tâm lý học tư vấn, Tâm lý học giáo dục, v.v.",
+                "Học các môn chuyên sâu theo chuyên ngành",
+                "Thực hành lâm sàng hoặc tư vấn",
+                "Làm luận văn thạc sĩ",
+                "Tham gia hội thảo, diễn đàn chuyên ngành"
+              ],
+              "resources": [
+                {
+                  "title": "Các trường đại học có đào tạo thạc sĩ tâm lý học",
+                  "type": "institution",
+                  "url": "https://example.com/institution"
+                },
+                {
+                  "title": "Tạp chí Tâm lý học",
+                  "type": "journal",
+                  "url": "https://example.com/journal"
+                }
+              ]
+            },
+            {
+              "step_id": 4,
+              "title": "Thực hành và chứng chỉ hành nghề",
+              "description": "Tích lũy giờ thực hành và lấy chứng chỉ hành nghề",
+              "duration": "1-2 năm",
+              "activities": [
+                "Thực hành dưới sự giám sát của nhà tâm lý học có kinh nghiệm",
+                "Tích lũy giờ thực hành theo yêu cầu",
+                "Thi lấy chứng chỉ hành nghề",
+                "Tham gia các khóa đào tạo chuyên sâu",
+                "Xây dựng mạng lưới chuyên môn"
+              ],
+              "resources": [
+                {
+                  "title": "Hiệp hội Tâm lý học lâm sàng",
+                  "type": "organization",
+                  "url": "https://example.com/organization"
+                },
+                {
+                  "title": "Các khóa đào tạo chuyên sâu về tâm lý trị liệu",
+                  "type": "course",
+                  "url": "https://example.com/course"
+                }
+              ]
+            },
+            {
+              "step_id": 5,
+              "title": "Phát triển sự nghiệp",
+              "description": "Phát triển sự nghiệp chuyên môn",
+              "duration": "Liên tục",
+              "activities": [
+                "Làm việc tại bệnh viện, trung tâm tư vấn, trường học",
+                "Mở phòng tư vấn tâm lý cá nhân",
+                "Tiếp tục học tiến sĩ nếu muốn nghiên cứu hoặc giảng dạy",
+                "Tham gia các hội thảo, khóa đào tạo liên tục",
+                "Đóng góp cho cộng đồng chuyên môn"
+              ],
+              "resources": [
+                {
+                  "title": "Cổng thông tin việc làm ngành tâm lý",
+                  "type": "website",
+                  "url": "https://example.com/jobs"
+                },
+                {
+                  "title": "Các hội nghị tâm lý học quốc tế",
+                  "type": "event",
+                  "url": "https://example.com/conference"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "career_id": 13,
+      "career_title": "Nhà thiết kế đồ họa",
+      "paths": [
+        {
+          "path_id": 6,
+          "title": "Lộ trình học Thiết kế đồ họa - Đại học",
+          "description": "Lộ trình học tập chính quy thông qua hệ thống đại học",
+          "duration": "4 năm",
+          "steps": [
+            {
+              "step_id": 1,
+              "title": "Chuẩn bị trước đại học",
+              "description": "Các môn học và kỹ năng cần chuẩn bị trước khi vào đại học",
+              "duration": "1-2 năm",
+              "activities": [
+                "Học vẽ cơ bản, màu sắc, bố cục",
+                "Làm quen với các phần mềm thiết kế cơ bản",
+                "Tìm hiểu về lịch sử nghệ thuật và thiết kế",
+                "Xây dựng portfolio đầu vào",
+                "Chuẩn bị cho kỳ thi năng khiếu (nếu có)"
+              ],
+              "resources": [
+                {
+                  "title": "Khóa học vẽ cơ bản",
+                  "type": "course",
+                  "url": "https://example.com/course"
+                },
+                {
+                  "title": "Tutorials Adobe Photoshop, Illustrator",
+                  "type": "tutorial",
+                  "url": "https://www.youtube.com/results?search_query=adobe+tutorials"
+                }
+              ]
+            },
+            {
+              "step_id": 2,
+              "title": "Năm 1-2 Đại học",
+              "description": "Các môn học cơ bản và nền tảng thiết kế",
+              "duration": "2 năm",
+              "activities": [
+                "Học các môn cơ bản: Hình họa, Màu sắc, Bố cục, Lịch sử nghệ thuật",
+                "Học các phần mềm thiết kế: Photoshop, Illustrator, InDesign",
+                "Tham gia các workshop, triển lãm",
+                "Làm các dự án nhỏ để áp dụng kiến thức",
+                "Xây dựng portfolio"
+              ],
+              "resources": [
+                {
+                  "title": "Sách: Nguyên lý thiết kế đồ họa",
+                  "type": "book",
+                  "url": "https://example.com/book"
+                },
+                {
+                  "title": "Behance - Nền tảng chia sẻ portfolio",
+                  "type": "platform",
+                  "url": "https://www.behance.net/"
+                }
+              ]
+            },
+            {
+              "step_id": 3,
+              "title": "Năm 3-4 Đại học",
+              "description": "Các môn học chuyên sâu và thực tập",
+              "duration": "2 năm",
+              "activities": [
+                "Học các môn chuyên ngành: Thiết kế nhận diện thương hiệu, Thiết kế web, Thiết kế UI/UX",
+                "Chọn hướng chuyên sâu: Branding, Web design, Motion graphics, v.v.",
+                "Thực tập tại công ty thiết kế hoặc agency",
+                "Làm đồ án tốt nghiệp",
+                "Hoàn thiện portfolio chuyên nghiệp"
+              ],
+              "resources": [
+                {
+                  "title": "Dribbble - Nền tảng chia sẻ thiết kế",
+                  "type": "platform",
+                  "url": "https://dribbble.com/"
+                },
+                {
+                  "title": "Các công ty thiết kế hàng đầu",
+                  "type": "internship",
+                  "url": "https://example.com/companies"
+                }
+              ]
+            },
+            {
+              "step_id": 4,
+              "title": "Sau đại học",
+              "description": "Phát triển chuyên môn và sự nghiệp",
+              "duration": "Liên tục",
+              "activities": [
+                "Tìm việc làm tại các công ty thiết kế, agency, doanh nghiệp",
+                "Làm freelancer",
+                "Học các kỹ năng mới: 3D, Motion graphics, UI/UX",
+                "Tham gia các cuộc thi thiết kế",
+                "Xây dựng thương hiệu cá nhân"
+              ],
+              "resources": [
+                {
+                  "title": "99designs - Nền tảng freelance thiết kế",
+                  "type": "platform",
+                  "url": "https://99designs.com/"
+                },
+                {
+                  "title": "Các cuộc thi thiết kế quốc tế",
+                  "type": "competition",
+                  "url": "https://example.com/competitions"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path_id": 7,
+          "title": "Lộ trình học Thiết kế đồ họa - Tự học",
+          "description": "Lộ trình tự học để trở thành nhà thiết kế đồ họa",
+          "duration": "1-2 năm",
+          "steps": [
+            {
+              "step_id": 1,
+              "title": "Nền tảng cơ bản",
+              "description": "Xây dựng nền tảng kiến thức cơ bản về thiết kế",
+              "duration": "3-6 tháng",
+              "activities": [
+                "Học nguyên lý thiết kế: Bố cục, Màu sắc, Typography",
+                "Học sử dụng Photoshop, Illustrator cơ bản",
+                "Làm các bài tập thực hành",
+                "Đọc sách, blog về thiết kế",
+                "Phân tích các thiết kế hay"
+              ],
+              "resources": [
+                {
+                  "title": "Udemy - Các khóa học thiết kế đồ họa",
+                  "type": "online_course",
+                  "url": "https://www.udemy.com/topic/graphic-design/"
+                },
+                {
+                  "title": "YouTube - Kênh thiết kế đồ họa",
+                  "type": "video",
+                  "url": "https://www.youtube.com/results?search_query=graphic+design+tutorial"
+                }
+              ]
+            },
+            {
+              "step_id": 2,
+              "title": "Nâng cao kỹ năng",
+              "description": "Nâng cao kỹ năng thiết kế và phần mềm",
+              "duration": "3-6 tháng",
+              "activities": [
+                "Học sâu về các phần mềm: Photoshop, Illustrator, InDesign",
+                "Học thiết kế logo, branding, poster, UI/UX",
+                "Làm các dự án cá nhân",
+                "Tham gia các cộng đồng thiết kế online",
+                "Xây dựng portfolio ban đầu"
+              ],
+              "resources": [
+                {
+                  "title": "Skillshare - Các khóa học thiết kế",
+                  "type": "online_course",
+                  "url": "https://www.skillshare.com/browse/graphic-design"
+                },
+                {
+                  "title": "Behance - Nền tảng chia sẻ portfolio",
+                  "type": "platform",
+                  "url": "https://www.behance.net/"
+                }
+              ]
+            },
+            {
+              "step_id": 3,
+              "title": "Chuyên môn hóa",
+              "description": "Chọn một hướng chuyên môn và đi sâu vào đó",
+              "duration": "3-6 tháng",
+              "activities": [
+                "Chọn một hướng: Branding, Web design, UI/UX, Motion graphics",
+                "Học chuyên sâu về lĩnh vực đã chọn",
+                "Làm các dự án thực tế",
+                "Tìm mentor hoặc tham gia các khóa học chuyên sâu",
+                "Hoàn thiện portfolio chuyên nghiệp"
+              ],
+              "resources": [
+                {
+                  "title": "Domestika - Các khóa học thiết kế chuyên sâu",
+                  "type": "online_course",
+                  "url": "https://www.domestika.org/en/courses/areas/2-design"
+                },
+                {
+                  "title": "Dribbble - Nền tảng chia sẻ thiết kế",
+                  "type": "platform",
+                  "url": "https://dribbble.com/"
+                }
+              ]
+            },
+            {
+              "step_id": 4,
+              "title": "Bắt đầu sự nghiệp",
+              "description": "Bắt đầu sự nghiệp thiết kế đồ họa",
+              "duration": "Liên tục",
+              "activities": [
+                "Làm freelancer trên các nền tảng",
+                "Tìm việc làm entry-level",
+                "Tiếp tục học hỏi và cập nhật xu hướng thiết kế",
+                "Xây dựng mạng lưới quan hệ trong ngành",
+                "Phát triển thương hiệu cá nhân"
+              ],
+              "resources": [
+                {
+                  "title": "Fiverr - Nền tảng freelance",
+                  "type": "platform",
+                  "url": "https://www.fiverr.com/"
+                },
+                {
+                  "title": "LinkedIn - Mạng xã hội chuyên nghiệp",
+                  "type": "network",
+                  "url": "https://www.linkedin.com/"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
